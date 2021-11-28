@@ -4,13 +4,13 @@ const LoginBar = ({ isBurgerOpen, setIsBurgerOpen }) => {
   return (
     <>
       <div
-        className="fixed top-0 left-0 w-[100%] h-[120%] -z-20 bg-black opacity-50"
+        className="overlay"
         onClick={() => {
           setIsBurgerOpen(!isBurgerOpen);
         }}
       ></div>
       <div className="fixed top-0 right-0 w-[50%] h-[120%] -z-10 bg-white">
-        <div className="border-t border-b mt-20 py-6  w-[100%] flex justify-center">
+        <div className="barBorder w-[100%] mt-20 py-6 flex justify-center">
           <div>
             <Link href="/login/signup">
               <a className="block bg-orange text-white w-40 h-10 leading-10 text-center rounded-md">

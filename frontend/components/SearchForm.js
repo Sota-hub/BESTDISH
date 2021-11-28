@@ -1,12 +1,29 @@
 const SearchForm = () => {
   return (
-    <form
-      className={classes.form_container}
-      onSubmit={handleSubmit(submitHandler)}
-    >
-      <label htmlFor="dish">Name</label>
-      <input type="text" name="dish" />
-      <input type="Submit" />
+    <form>
+      <div>
+        <input
+          type="text"
+          name="dish"
+          placeholder="Dish name"
+          className="searchInputShape border"
+        />
+      </div>
+      <div>
+        <input
+          type="text"
+          name="price"
+          placeholder="Price"
+          className="searchInputShape border"
+        />
+      </div>
+      <div>
+        <input
+          type="Submit"
+          value="Let's find"
+          className="searchInputShape bg-pink text-white text-center"
+        />
+      </div>
     </form>
   );
 };
