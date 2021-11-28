@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import Head from "next/head";
 
-import Header from "../layouts/Header";
-import Footer from "../layouts/Footer";
+import Header from "../components/layouts/Header";
+import Footer from "../components/layouts/Footer";
 
 export default function Home() {
   const [message, setMessage] = useState("");
