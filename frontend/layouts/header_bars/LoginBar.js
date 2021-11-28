@@ -9,7 +9,7 @@ const LoginBar = ({ isBurgerOpen, setIsBurgerOpen }) => {
           setIsBurgerOpen(!isBurgerOpen);
         }}
       ></div>
-      <div className="fixed top-0 right-0 w-[50%] h-[120%] -z-10 bg-white">
+      <div className="fixed top-0 right-0 w-[50%] h-[120%] z-20 bg-white">
         <div className="barBorder w-[100%] mt-20 py-6 flex justify-center">
           <div>
             <Link href="/login/signup">

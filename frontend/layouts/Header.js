@@ -14,20 +14,24 @@ const Header = () => {
   return (
     <>
       <div className="alignCenter justify-between m-2">
-        <div className="ml-4">BESTDISH</div>
+        <div className="ml-4 text-xl">BESTDISH</div>
         <div className="alignCenter  justify-end m-2">
           <div
-            className={`alignCenter w-12 h-12 z-0 ${
-              isBurgerOpen && "opacity-0 pointer-events-none"
-            }`}
+            className={
+              isBurgerOpen
+                ? "opacity-0 pointer-events-none"
+                : "relative z-30 alignCenter w-12 h-12"
+            }
             onClick={() => {
               setIsSearchOpen(!isSearchOpen);
             }}
           >
-            <Image src={searchIcon} alt="search icon" className="-z-30" />
+            <Image src={searchIcon} alt="search icon" />
           </div>
           <div className="m-1"></div>
-          <div className={isSearchOpen && "opacity-0 pointer-events-none"}>
+          <div
+            className={isSearchOpen ? "opacity-0 pointer-events-none" : "z-30"}
+          >
             <Hamburger
               className="static"
               toggled={isBurgerOpen}
