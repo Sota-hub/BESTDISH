@@ -1,6 +1,6 @@
 const SearchForm = () => {
   return (
-    <form className="w-[100%]">
+    <form className="w-[100%] ">
       <div>
         <input
           type="text"

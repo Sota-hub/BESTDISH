@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import RatingStar from "../RatingStar";
+import RatingStar from "../../ui/RatingStar";
 
 const DishCard = ({ dish_name, evaluation, price, location, image }) => {
   return (

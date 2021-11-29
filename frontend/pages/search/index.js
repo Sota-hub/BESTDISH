@@ -1,6 +1,7 @@
 import Head from "next/head";
 
 import Header from "../../components/layouts/Header";
+import SearchDisplay from "../../components/block/SearchDisplay";
 import Footer from "../../components/layouts/Footer";
 
 const Search = () => {
@@ -16,6 +17,7 @@ const Search = () => {
         />
       </Head>
       <Header />
+      <SearchDisplay />
       <Footer />
     </div>
   );
