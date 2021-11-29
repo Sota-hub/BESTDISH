@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import SearchForm from "../ui/SearchForm";
 import CardList from "../ui/card/CardList";
+import PostButton from "../ui/post-button/PostButton";
 
 import BG1 from "../../public/bg-1.jpg";
 
@@ -39,6 +40,7 @@ const HomeDisplay = () => {
         />
         <CardList title="Someone’s menu" link="/login/signup" menu />
       </div>
+      <PostButton />
     </>
   );
 };

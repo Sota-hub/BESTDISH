@@ -26,7 +26,7 @@ body {
   @apply rounded-sm overflow-hidden;
 }
 
-/* =============== CSS ================= */
+/* =============== From basic CSS ================= */
 .justify-unset {
   justify-content: unset;
 }

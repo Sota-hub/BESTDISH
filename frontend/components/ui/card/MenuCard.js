@@ -15,7 +15,7 @@ const MenuCard = ({
       </div>
       <div className=" mt-1 ml-3">
         <div className="alignCenter bg-pink text-white w-24 h-8 rounded-md my-2">
-          <span>{match}</span>
+          <span className="text-lg">{match}</span>
           <span className="ml-2 text-xs">match</span>
         </div>
         <h1 className="text-lg font-bold">{user_name}'s menu</h1>
