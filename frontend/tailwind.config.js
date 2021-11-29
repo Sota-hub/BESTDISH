@@ -3,8 +3,8 @@ module.exports = {
   purge: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
-    "./layouts/**/*.{js,ts,jsx,tsx}",
-    "./layouts/*.{js,ts,jsx,tsx}",
+    "./components/**/**/*.{js,ts,jsx,tsx}",
+    // tailwind warning
     "./public/**/*.html",
     "./src/**/*.{js,jsx,ts,tsx,vue}",
   ],

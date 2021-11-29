@@ -1,5 +1,5 @@
 body {
-  @apply text-black bg-white;
+  @apply text-black bg-white tracking-wider;
 }
 
 .alignCenter {
@@ -14,6 +14,19 @@ body {
   @apply w-[100%] p-3 rounded-md my-2;
 }
 
+.LightRoundBorder {
+  @apply border border-gray-300;
+}
+
 .barBorder {
   @apply border-t border-b border-gray-300;
+}
+
+.imageRounded {
+  @apply rounded-sm overflow-hidden;
+}
+
+/* =============== CSS ================= */
+.justify-unset {
+  justify-content: unset;
 }
