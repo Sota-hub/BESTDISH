@@ -1,11 +1,16 @@
+import { useState } from "react";
+
+import PostInputDisplay from "./postSwitchDisplays.js/PostInputDisplay";
+import PostConfirmDisplay from "./postSwitchDisplays.js/PostConfirmDisplay";
+
 const PostDisplay = () => {
+  const [isConfirmation, setIsConfirmation] = useState(false);
+
   return (
-    <div className="alignCenter">
-      <div className="w-[80%]">
-        <h1 className="text-2xl ml-2 w-[80%]  ">Post</h1>
-        <a className="text-orange text-xs ml-3">* is required</a>
-      </div>
-    </div>
+    <>
+      {/* <PostInputDisplay /> */}
+      <PostConfirmDisplay />
+    </>
   );
 };
 

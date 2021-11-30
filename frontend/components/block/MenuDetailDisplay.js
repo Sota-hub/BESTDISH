@@ -17,10 +17,7 @@ const MenuDetailDisplay = () => {
         <div className="w-[90%]">
           <h1 className="text-4xl mb-2">Menu name</h1>
           <RatingStar />
-          <button
-            className="userWhitePinkButton w-[50%] h-12 mt-4"
-            onClick={saveDish}
-          >
+          <button className="whiteButton w-[50%] h-12 mt-4" onClick={saveDish}>
             Save this dish
           </button>
         </div>

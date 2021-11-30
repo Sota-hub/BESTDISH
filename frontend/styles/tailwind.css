@@ -30,12 +30,20 @@ body {
   @apply bg-[#F2F2F2] w-[122px] border border-black  rounded p-[2px];
 }
 
-.userWhitePinkButton {
+.whiteButton {
   @apply w-[100%] h-16 rounded-md  my-2 text-pink bg-white border border-pink;
+}
+
+.pinkButton {
+  @apply w-[100%] h-16 rounded-md  my-2 text-white bg-pink;
 }
 
 .supportText {
   @apply opacity-75 text-xs;
+}
+
+.inputBarStyle {
+  @apply block border-b w-[100%] h-10;
 }
 
 /* =============== From basic CSS ================= */

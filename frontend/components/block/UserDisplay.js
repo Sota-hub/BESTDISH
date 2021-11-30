@@ -34,10 +34,10 @@ const UserDisplay = () => {
       <div className="alignCenter mt-10">
         <div className="w-[80%]">
           <Link href="/user/a/post">
-            <a className="alignCenter userWhitePinkButton">Post Dish</a>
+            <a className="alignCenter whiteButton">Post Dish</a>
           </Link>
           <Link href="/user/b/menu">
-            <a className="alignCenter userWhitePinkButton">BEST DISH</a>
+            <a className="alignCenter whiteButton">BEST DISH</a>
           </Link>
           {/* <Link href="/user/c/menu">
             <a className="alignCenter userHomeButton">All Menu</a>
