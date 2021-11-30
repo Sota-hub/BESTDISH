@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import SearchForm from "../parts/SearchForm";
 import DishCardList from "../parts/card/DishCardList";
@@ -7,7 +8,7 @@ import PostButton from "../ui/post-button/PostButton";
 
 import BG1 from "../../public/bg-1.jpg";
 
-const HomeDisplay = () => {
+const UserDisplay = () => {
   return (
     <>
       <div className="imageRounded relative">
@@ -20,7 +21,6 @@ const HomeDisplay = () => {
           className="absolute"
           priority
         />
-
         <div className="absolute top-0 w-[100%]  h-[100%] bg-black opacity-80"></div>
         <div className="alignCenter absolute top-0 w-[100%]  h-[100%]">
           <div className="w-[80%] ">
@@ -29,6 +29,19 @@ const HomeDisplay = () => {
             </p>
             <SearchForm />
           </div>
+        </div>
+      </div>
+      <div className="alignCenter mt-10">
+        <div className="w-[80%]">
+          <Link href="/user/a/post">
+            <a className="alignCenter userWhitePinkButton">Post Dish</a>
+          </Link>
+          <Link href="/user/b/menu">
+            <a className="alignCenter userWhitePinkButton">BEST DISH</a>
+          </Link>
+          {/* <Link href="/user/c/menu">
+            <a className="alignCenter userHomeButton">All Menu</a>
+          </Link> */}
         </div>
       </div>
       <div className=" mb-14">
@@ -45,4 +58,4 @@ const HomeDisplay = () => {
   );
 };
 
-export default HomeDisplay;
+export default UserDisplay;

@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import Head from "next/head";
 
 import Header from "../components/layouts/Header";
-import HomeDisplay from "../components/block/HomeDisplay";
 import Footer from "../components/layouts/Footer";
 
 const Home = () => {
@@ -23,13 +22,13 @@ const Home = () => {
         <title>Home - BESTDISH</title>
         <link rel="icon" href="/favicon.ico" />
         <meta
-          property="DESTDISH home page"
+          property="BESTDISH home page"
           content="Home - BESTDISH"
           key="title"
         />
       </Head>
       <Header />
-      <HomeDisplay />
+      HOME DISPLAY
       <Footer />
     </div>
   );

@@ -20,11 +20,11 @@ const MenuCard = ({
         </div>
         <h1 className="text-lg font-bold">{user_name}'s menu</h1>
         <p>
-          {posts} <span className="opacity-75 text-xs">posts</span>
+          {posts} <span className="supportText">posts</span>
         </p>
         <p>
           {average_price}
-          <span className="opacity-75 text-xs">$ around</span>
+          <span className="supportText">$ around</span>
         </p>
         <p>{approximate_location}</p>
       </div>

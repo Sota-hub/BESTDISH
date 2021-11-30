@@ -1,9 +1,10 @@
+import { useRouter } from "next/router";
 import Image from "next/image";
 
 import RatingStar from "../../ui/RatingStar";
-import BG1 from "../../../public/bg-1.jpg";
 
 const DishTile = ({
+  id,
   dish_name,
   evaluation,
   price,
@@ -11,8 +12,17 @@ const DishTile = ({
   description,
   image,
 }) => {
+  const router = useRouter();
+
+  const goToDetailPage = () => {
+    router.push(`/user/userId/menu/${id}`);
+  };
+
   return (
-    <div className="flex border-b border-gray-300 pb-4 mb-4">
+    <div
+      className="flex border-b border-gray-300 pb-4 mb-4 cursor-pointer"
+      onClick={goToDetailPage}
+    >
       <div className="relative w-[50%]">
         <Image src={image} alt=""></Image>
       </div>
@@ -21,7 +31,7 @@ const DishTile = ({
           <h1 className="font-bold text-lg">{dish_name}</h1>
           <RatingStar evaluation={evaluation} />
           <p>
-            <span className="opacity-75 text-xs">$</span> {price}
+            <span className="supportText">$</span> {price}
           </p>
           <p>{location}</p>
           <p className="opacity-75  text-sm mt-1">{description}</p>

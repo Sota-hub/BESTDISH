@@ -18,7 +18,7 @@ body {
   @apply border border-gray-300;
 }
 
-.barBorder {
+.SandwichBorder {
   @apply border-t border-b border-gray-300;
 }
 
@@ -28,6 +28,14 @@ body {
 
 .dropDownMenu {
   @apply bg-[#F2F2F2] w-[122px] border border-black  rounded p-[2px];
+}
+
+.userWhitePinkButton {
+  @apply w-[100%] h-16 rounded-md  my-2 text-pink bg-white border border-pink;
+}
+
+.supportText {
+  @apply opacity-75 text-xs;
 }
 
 /* =============== From basic CSS ================= */

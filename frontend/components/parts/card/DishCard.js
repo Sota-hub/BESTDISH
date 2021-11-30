@@ -12,7 +12,7 @@ const DishCard = ({ dish_name, evaluation, price, location, image }) => {
         <h1 className="font-bold text-lg">{dish_name}</h1>
         <RatingStar evaluation={evaluation} />
         <p>
-          <span className="opacity-75 text-xs">$</span> {price}
+          <span className="supportText">$</span> {price}
         </p>
         <p>{location}</p>
       </div>
