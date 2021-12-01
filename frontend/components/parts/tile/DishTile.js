@@ -5,7 +5,7 @@ import RatingStar from "../../ui/RatingStar";
 
 const DishTile = ({
   id,
-  dish_name,
+  dishName,
   evaluation,
   price,
   location,
@@ -28,7 +28,7 @@ const DishTile = ({
       </div>
       <div className="alignCenter w-[50%] h-[100%]">
         <div>
-          <h1 className="font-bold text-lg">{dish_name}</h1>
+          <h1 className="font-bold text-lg">{dishName}</h1>
           <RatingStar evaluation={evaluation} />
           <p>
             <span className="supportText">$</span> {price}

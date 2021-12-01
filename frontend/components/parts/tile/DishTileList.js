@@ -8,7 +8,7 @@ const DishTileList = ({ sampleData }) => {
           <DishTile
             key={datum.id}
             id={datum.id}
-            dish_name={datum.dish_name}
+            dishName={datum.dishName}
             evaluation={datum.evaluation}
             price={datum.price}
             location={datum.location}

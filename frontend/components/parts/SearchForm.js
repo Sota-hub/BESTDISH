@@ -1,12 +1,10 @@
 const SearchForm = () => {
-  const searchHandler = () => {};
-
   return (
-    <form className="w-[100%] ">
+    <form action="/search" method="get" className="w-[100%] ">
       <div>
         <input
           type="text"
-          name="dish"
+          name="dishName"
           placeholder="Dish name"
           className="searchInputShape LightRoundBorder"
         />
