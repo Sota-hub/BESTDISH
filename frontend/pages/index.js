@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import Head from "next/head";
 
 import Header from "../components/layouts/Header";
+import HomeDisplay from "../components/block/HomeDisplay";
 import Footer from "../components/layouts/Footer";
 
 const Home = () => {
@@ -28,7 +29,7 @@ const Home = () => {
         />
       </Head>
       <Header />
-      HOME DISPLAY
+      <HomeDisplay />
       <Footer />
     </div>
   );

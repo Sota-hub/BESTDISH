@@ -1,4 +1,6 @@
 const SearchForm = () => {
+  const searchHandler = () => {};
+
   return (
     <form className="w-[100%] ">
       <div>
