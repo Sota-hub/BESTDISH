@@ -5,7 +5,7 @@ import LoginInput from "../ui/LoginInput";
 
 const SingInDisplay = () => {
   return (
-    <div className="alignCenter mt-20">
+    <main className="alignCenter mt-20">
       <div className="w-[80%]">
         <LoginTitle sign="sign in" />
         <form className="w-[100%]">
@@ -26,7 +26,7 @@ const SingInDisplay = () => {
           </div>
         </form>
       </div>
-    </div>
+    </main>
   );
 };
 

@@ -7,7 +7,7 @@ import PostButton from "../ui/post-button/PostButton";
 
 const UserDisplay = () => {
   return (
-    <>
+    <main>
       <SearchFormWithBg />
       <div className="alignCenter mt-10">
         <div className="w-[80%]">
@@ -32,7 +32,7 @@ const UserDisplay = () => {
         <MenuCardList title="Someone’s menu" link="/login/signup" />
       </div>
       <PostButton />
-    </>
+    </main>
   );
 };
 

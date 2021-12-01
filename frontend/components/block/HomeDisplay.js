@@ -1,7 +1,11 @@
 import SearchFormWithBg from "../parts/SearchFormWithBg";
 
 const HomeDisplay = () => {
-  return <SearchFormWithBg />;
+  return (
+    <main>
+      <SearchFormWithBg />;
+    </main>
+  );
 };
 
 export default HomeDisplay;

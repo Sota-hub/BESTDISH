@@ -7,7 +7,7 @@ const PostInputDisplay = () => {
   const [isOptionsOpen, setIsOptionsOpen] = useState(false);
 
   return (
-    <div className="alignCenter">
+    <main className="alignCenter">
       <div className="w-[80%]">
         <h1 className="text-2xl ml-2 w-[80%]  ">Post</h1>
         <a className="text-orange text-xs ml-3">* is required</a>
@@ -98,7 +98,7 @@ const PostInputDisplay = () => {
           ></input>
         </form>
       </div>
-    </div>
+    </main>
   );
 };
 

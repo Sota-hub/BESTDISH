@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="alignCenter bg-black text-white">
+    <footer className="alignCenter bg-black text-white">
       <ul className="w-[80%]  py-12 text-sm font-thin">
         <li>
           <Link href="">
@@ -25,7 +25,7 @@ const Footer = () => {
           </Link>
         </li>
       </ul>
-    </div>
+    </footer>
   );
 };
 

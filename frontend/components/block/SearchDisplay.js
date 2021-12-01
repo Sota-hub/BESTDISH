@@ -3,7 +3,7 @@ import DishTileList from "../parts/tile/DishTileList";
 
 const SearchDisplay = () => {
   return (
-    <>
+    <main>
       <div className="alignCenter h-64 bg-black pattern-background">
         <div className="w-[80%] ">
           <SearchForm />
@@ -28,7 +28,7 @@ const SearchDisplay = () => {
       <div>
         <DishTileList />
       </div>
-    </>
+    </main>
   );
 };
 

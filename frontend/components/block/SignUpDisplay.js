@@ -10,7 +10,7 @@ const SignUpDisplay = () => {
   const signUpProcess = () => {};
 
   return (
-    <div className="alignCenter mt-20">
+    <main className="alignCenter mt-20">
       <div className="w-[80%]">
         <LoginTitle sign="sign up" />
         <form className="w-[100%]">
@@ -48,7 +48,7 @@ const SignUpDisplay = () => {
           )}
         </form>
       </div>
-    </div>
+    </main>
   );
 };
 

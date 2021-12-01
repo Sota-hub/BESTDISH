@@ -12,7 +12,7 @@ const MenuDetailDisplay = () => {
   };
 
   return (
-    <>
+    <main>
       <div className="alignCenter mt-8">
         <div className="w-[90%]">
           <h1 className="text-4xl mb-2">Menu name</h1>
@@ -43,7 +43,7 @@ const MenuDetailDisplay = () => {
         </div>
       </div>
       <MenuCardList title="Menus includes this dish" link="/user/a" />
-    </>
+    </main>
   );
 };
 

@@ -13,7 +13,7 @@ const Header = () => {
 
   return (
     <>
-      <div className="alignCenter justify-between m-2">
+      <header className="alignCenter justify-between m-2">
         <div className="ml-4 text-xl">BESTDISH</div>
         <div className="alignCenter  justify-end m-2">
           <div
@@ -41,7 +41,7 @@ const Header = () => {
             />
           </div>
         </div>
-      </div>
+      </header>
       {isBurgerOpen && (
         <LoginBar
           isBurgerOpen={isBurgerOpen}

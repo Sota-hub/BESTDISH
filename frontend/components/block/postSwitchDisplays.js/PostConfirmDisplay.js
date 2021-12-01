@@ -1,6 +1,6 @@
 const PostConfirmDisplay = () => {
   return (
-    <div className="alignCenter my-8 font-bold">
+    <main className="alignCenter my-8 font-bold">
       <div className="w-[80%]">
         <h1 className="text-5xl my-8">
           Will you
@@ -26,7 +26,7 @@ const PostConfirmDisplay = () => {
         </select>
         <button className="pinkButton my-8">Post</button>
       </div>
-    </div>
+    </main>
   );
 };
 
