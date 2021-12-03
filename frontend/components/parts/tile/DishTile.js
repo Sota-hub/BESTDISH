@@ -1,21 +1,17 @@
+// ============== SAMPLE IMAGE ==============
+import BG1 from "../../../public/bg-1.jpg";
+// ==========================================
+
 import { useRouter } from "next/router";
 import Image from "next/image";
 
 import RatingStar from "../../ui/RatingStar";
 
-const DishTile = ({
-  id,
-  dishName,
-  evaluation,
-  price,
-  location,
-  description,
-  image,
-}) => {
+const DishTile = ({ dish }) => {
   const router = useRouter();
 
   const goToDetailPage = () => {
-    router.push(`/user/userId/menu/${id}`);
+    router.push(`/user/${dish.postUserId}/menu/${dish._id}`);
   };
 
   return (
@@ -24,17 +20,17 @@ const DishTile = ({
       onClick={goToDetailPage}
     >
       <div className="relative w-[50%]">
-        <Image src={image} alt=""></Image>
+        <Image src={/*dish.image*/ BG1} alt={`${dish.dishName} image`}></Image>
       </div>
-      <div className="alignCenter w-[50%] h-[100%]">
+      <div className="alignCenter w-[50%] h-[100%] pl-4">
         <div>
-          <h1 className="font-bold text-lg">{dishName}</h1>
-          <RatingStar evaluation={evaluation} />
+          <h1 className="font-bold text-lg">{dish.dishName}</h1>
+          <RatingStar evaluation={dish.evaluation} />
           <p>
-            <span className="supportText">$</span> {price}
+            <span className="supportText">$</span> {dish.price}
           </p>
-          <p>{location}</p>
-          <p className="opacity-75  text-sm mt-1">{description}</p>
+          <p>{dish.location}</p>
+          <p className="opacity-75  text-sm mt-1">{dish.description}</p>
         </div>
       </div>
     </div>

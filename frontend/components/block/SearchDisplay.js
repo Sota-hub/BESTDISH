@@ -1,7 +1,11 @@
+import { useState } from "react";
+
 import SearchForm from "../parts/SearchForm";
 import DishTileList from "../parts/tile/DishTileList";
 
 const SearchDisplay = ({ dishes }) => {
+  const [sortByPopularity, setSortByPopularity] = useState("saved");
+
   return (
     <main>
       <div className="alignCenter h-64 bg-black pattern-background">
@@ -18,15 +22,20 @@ const SearchDisplay = ({ dishes }) => {
             <option>km - 25</option>
             <option>km - 50</option>
           </select>
-          <select className="dropDownMenu">
+          <select
+            value={sortByPopularity}
+            className="dropDownMenu"
+            onChange={(e) => setSortByPopularity(e.target.value)}
+          >
             <option value="saved">Most Saved</option>
             <option value="looked">Most Looked</option>
-            <option value="looked">New</option>
+            <option value="rate">High rate</option>
+            <option value="new">New</option>
           </select>
         </div>
       </div>
       <div>
-        <DishTileList dishes={dishes} />
+        <DishTileList dishes={dishes} sortByPopularity={sortByPopularity} />
       </div>
     </main>
   );

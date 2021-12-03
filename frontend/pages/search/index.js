@@ -23,9 +23,10 @@ const Search = ({ dishes }) => {
   );
 };
 
-export async function getStaticProps(context) {
-  const query = context.query;
-  const response = await fetch(`http://localhost:3001/search?${query}`);
+export async function getServerSideProps({ query }) {
+  const response = await fetch(
+    `http://localhost:3001/search?dishName=${query.dishName}&price=${query.price}`
+  );
   const dishes = await response.json();
 
   return {
