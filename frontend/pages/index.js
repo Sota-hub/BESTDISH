@@ -1,21 +1,20 @@
-// import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Head from "next/head";
 
 import Header from "../components/layouts/Header";
 import HomeDisplay from "../components/block/HomeDisplay";
 import Footer from "../components/layouts/Footer";
 
-const Home = () => {
-  // const [message, setMessage] = useState("");
+import { geolocation } from "../helperFunctions";
 
-  // useEffect(() => {
-  //   const fetchFunction = async () => {
-  //     const response = await fetch("/api");
-  //     const data = await response.json();
-  //     setMessage(data.message);
-  //   };
-  //   fetchFunction();
-  // }, []);
+const Home = () => {
+  const [nav, setNav] = useState(false);
+
+  useEffect(() => {
+    setNav(navigator);
+  }, []);
+
+  nav && geolocation(nav);
 
   return (
     <div>
