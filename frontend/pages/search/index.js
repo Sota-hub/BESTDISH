@@ -4,7 +4,7 @@ import Header from "../../components/layouts/Header";
 import SearchDisplay from "../../components/block/SearchDisplay";
 import Footer from "../../components/layouts/Footer";
 
-const Search = () => {
+const Search = ({ dishes }) => {
   return (
     <div>
       <Head>
@@ -17,10 +17,22 @@ const Search = () => {
         />
       </Head>
       <Header />
-      <SearchDisplay />
+      <SearchDisplay dishes={dishes} />
       <Footer />
     </div>
   );
 };
+
+export async function getStaticProps(context) {
+  const query = context.query;
+  const response = await fetch(`http://localhost:3001/search?${query}`);
+  const dishes = await response.json();
+
+  return {
+    props: {
+      dishes,
+    },
+  };
+}
 
 export default Search;

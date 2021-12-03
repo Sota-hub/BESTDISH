@@ -5,22 +5,22 @@ const Footer = () => {
     <footer className="alignCenter bg-black text-white">
       <ul className="w-[80%]  py-12 text-sm font-thin">
         <li>
-          <Link href="">
+          <Link href="/">
             <a>Home</a>
           </Link>
         </li>
         <li>
-          <Link href="">
+          <Link href="/">
             <a>Search</a>
           </Link>
         </li>
         <li>
-          <Link href="">
+          <Link href="/">
             <a>My page</a>
           </Link>
         </li>
         <li>
-          <Link href="">
+          <Link href="/">
             <a>Post</a>
           </Link>
         </li>

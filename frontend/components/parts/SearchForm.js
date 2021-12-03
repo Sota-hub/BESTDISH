@@ -1,7 +1,5 @@
 import { useRef, createRef } from "react";
 import { useRouter } from "next/router";
-import { useContext } from "react";
-import { SearchFormInput } from "../../context/state";
 
 const data = [
   { name: "dishName", placeholder: "Dish Name" },
@@ -9,7 +7,6 @@ const data = [
 ];
 
 const SearchForm = () => {
-  const { searchWords } = useContext(SearchFormInput);
   const router = useRouter();
 
   const refs = useRef([]);
@@ -21,12 +18,11 @@ const SearchForm = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     const words = refs.current.map((word) => word.current.value);
-    searchWords = words;
-    router.push("/search");
+    router.push(`/search?dishName=${words[0]}&price=${words[1]}`);
   };
 
   return (
-    <form /*action="/search" method="get"*/ className="w-[100%] ">
+    <form className="w-[100%] ">
       {data.map((info, i) => (
         <div key={info.name}>
           <input

@@ -1,7 +1,7 @@
 import SearchForm from "../parts/SearchForm";
 import DishTileList from "../parts/tile/DishTileList";
 
-const SearchDisplay = () => {
+const SearchDisplay = ({ dishes }) => {
   return (
     <main>
       <div className="alignCenter h-64 bg-black pattern-background">
@@ -26,7 +26,7 @@ const SearchDisplay = () => {
         </div>
       </div>
       <div>
-        <DishTileList />
+        <DishTileList dishes={dishes} />
       </div>
     </main>
   );
