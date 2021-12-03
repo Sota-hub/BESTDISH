@@ -9,11 +9,15 @@ mongoose.connect("mongodb://127.0.0.1:27017/best-dish-api");
 const app = express();
 
 const dishSchema = new mongoose.Schema({
+  postUserId: String,
   dishName: String,
   evaluation: Number,
   price: Number,
   location: String,
   description: String,
+  saved: Number,
+  visited: Number,
+  postDate: Date,
 });
 
 const Dish = mongoose.model("Dish", dishSchema);
