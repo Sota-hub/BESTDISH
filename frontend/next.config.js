@@ -4,7 +4,7 @@ module.exports = {
     return [
       {
         source: "/:search",
-        destination: "http://localhost:3001/:search",
+        destination: "http://localhost:8000/:search",
       },
     ];
   },
