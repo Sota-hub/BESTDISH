@@ -32,6 +32,8 @@ const dishSchema = new mongoose.Schema({
   saved: Number,
   visited: Number,
   postDate: Date,
+  latitude: Number,
+  longitude: Number,
 });
 
 const Dish = mongoose.model("Dish", dishSchema);
@@ -90,6 +92,8 @@ const curry = new Dish({
   saved: 100,
   visited: 200,
   postDate: new Date(),
+  latitude: 49.3,
+  longitude: -123.2,
 });
 
 // hamburger.save().then(() => console.log(hamburger));
