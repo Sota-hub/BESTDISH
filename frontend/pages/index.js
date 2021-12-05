@@ -1,21 +1,10 @@
-import { useState, useEffect } from "react";
 import Head from "next/head";
 
 import Header from "../components/layouts/Header";
 import HomeDisplay from "../components/block/HomeDisplay";
 import Footer from "../components/layouts/Footer";
 
-import { geolocation } from "../helperFunctions";
-
 const Home = () => {
-  const [nav, setNav] = useState(false);
-
-  useEffect(() => {
-    setNav(navigator);
-  }, []);
-
-  nav && geolocation(nav);
-
   return (
     <div>
       <Head>
@@ -35,3 +24,10 @@ const Home = () => {
 };
 
 export default Home;
+
+// (latitude)        (km)
+// 1               = 111
+// 0.045           = 5
+// 0.09            = 10
+// 0.225           = 25
+// 0.45            = 50

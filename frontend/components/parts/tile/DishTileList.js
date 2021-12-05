@@ -1,20 +1,28 @@
-import DishTile from "./DishTile";
+import { useState, useEffect } from "react";
 
-const DishTileList = ({ dishes, sortByPopularity }) => {
-  if (sortByPopularity === "saved") dishes.sort((a, b) => b.saved - a.saved);
-  if (sortByPopularity === "looked")
-    dishes.sort((a, b) => b.visited - a.visited);
-  if (sortByPopularity === "rate")
-    dishes.sort((a, b) => b.evaluation - a.evaluation);
-  if (sortByPopularity === "new")
-    dishes.sort((a, b) => new Date(b.postDate) - new Date(a.postDate));
+import DishTile from "./DishTile";
+import { rangeFilter } from "../../../helperFunctions";
+import { popularityFilter } from "../../../helperFunctions";
+
+const DishTileList = ({ dishes, sortByRange, sortByPopularity }) => {
+  // ===== Enable to use navigator =====
+  const [nav, setNav] = useState(false);
+
+  useEffect(() => {
+    setNav(navigator);
+  }, []);
+  // ===================================
+
+  nav && rangeFilter(nav, dishes, sortByRange);
+  popularityFilter(dishes, sortByPopularity);
 
   return (
     <div className="alignCenter mb-8">
       <div className=" w-[90%]">
         {!dishes.length && <p>Not matched any dish...</p>}
-        {dishes &&
-          dishes.map((dish) => <DishTile key={dish._id} dish={dish} />)}
+        {dishes?.map((dish) => (
+          <DishTile key={dish._id} dish={dish} />
+        ))}
       </div>
     </div>
   );

@@ -5,6 +5,9 @@ import DishTileList from "../parts/tile/DishTileList";
 
 const SearchDisplay = ({ dishes }) => {
   const [sortByPopularity, setSortByPopularity] = useState("saved");
+  const [sortByRange, setSortByRange] = useState(0);
+
+  // console.log(sortByRange);
 
   return (
     <main>
@@ -15,17 +18,21 @@ const SearchDisplay = ({ dishes }) => {
       </div>
       <div className="alignCenter mt-10 mb-8">
         <div className="flex justify-between w-[90%]">
-          <select className="dropDownMenu">
-            <option>All range</option>
-            <option>km - 5</option>
-            <option>km - 10</option>
-            <option>km - 25</option>
-            <option>km - 50</option>
+          <select
+            value={sortByRange}
+            onChange={(e) => setSortByRange(+e.target.value)}
+            className="dropDownMenu"
+          >
+            <option value="0">All range</option>
+            <option value="5">km - 5</option>
+            <option value="10">km - 10</option>
+            <option value="25">km - 25</option>
+            <option value="50">km - 50</option>
           </select>
           <select
             value={sortByPopularity}
-            className="dropDownMenu"
             onChange={(e) => setSortByPopularity(e.target.value)}
+            className="dropDownMenu"
           >
             <option value="saved">Most Saved</option>
             <option value="looked">Most Looked</option>
@@ -35,7 +42,11 @@ const SearchDisplay = ({ dishes }) => {
         </div>
       </div>
       <div>
-        <DishTileList dishes={dishes} sortByPopularity={sortByPopularity} />
+        <DishTileList
+          dishes={dishes}
+          sortByRange={sortByRange}
+          sortByPopularity={sortByPopularity}
+        />
       </div>
     </main>
   );
