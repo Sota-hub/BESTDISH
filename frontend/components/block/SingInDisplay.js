@@ -25,22 +25,57 @@ const SingInDisplay = () => {
     console.log(data);
   };
 
-  // const update = async () => {
-  //   const sendingInfo = { name: "taro" };
+  // ==============================================================================================
 
-  //   const response = await fetch("/users/61ad5d8f16b684ecd34aeff0", {
-  //     method: "PATCH",
-  //     headers: {
-  //       Accept: "application/json",
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(sendingInfo),
-  //   });
+  const signOut = async () => {
+    const response = await fetch("/users/signout", {
+      method: "POST",
+      headers: {
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWFkYTYzOTUyMmI5OGEyN2ZmNmZhMTAiLCJpYXQiOjE2Mzg3NzA0OTYsImV4cCI6MTYzODg1Njg5Nn0.ypU8uUtquFjAAYPD2msVaxGSK2fNFH98zK92aydNcCA",
+      },
+    });
 
-  //   const data = await response.json();
+    const data = await response.json();
+    console.log(data);
+  };
 
-  //   console.log(data);
-  // };
+  // ==============================================================================================
+
+  const profile = async () => {
+    const response = await fetch("/users/profile", {
+      method: "GET",
+      headers: {
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWFkYTYzOTUyMmI5OGEyN2ZmNmZhMTAiLCJpYXQiOjE2Mzg3NzA2MzMsImV4cCI6MTYzODg1NzAzM30.Jb_c7JymzAFWp_MZSGXq1bDBsT7n2THcMXgMOgoH11Y",
+      },
+    });
+
+    const data = await response.json();
+    console.log(data);
+  };
+
+  // ==============================================================================================
+
+  const update = async () => {
+    const sendingInfo = { email: "uuuuu@test.com" };
+
+    const response = await fetch("/users/61ada639522b98a27ff6fa10", {
+      method: "PATCH",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWFkYTYzOTUyMmI5OGEyN2ZmNmZhMTAiLCJpYXQiOjE2Mzg3NzAyMzMsImV4cCI6MTYzODg1NjYzM30.kPhEAh8onb3xYyGeXcKgbJWV7L-NGH87eEdCRZpWbdg",
+      },
+      body: JSON.stringify(sendingInfo),
+    });
+
+    const data = await response.json();
+    console.log(data);
+  };
+
+  // ==============================================================================================
 
   return (
     <main className="alignCenter mt-20">
@@ -61,9 +96,15 @@ const SingInDisplay = () => {
             >
               Sign in
             </button>
-            {/* <button type="button" className="pinkButton" onClick={update}>
+            <button type="button" className="pinkButton" onClick={profile}>
+              Profile
+            </button>
+            <button type="button" className="pinkButton" onClick={update}>
               Update
-            </button> */}
+            </button>
+            <button type="button" className="pinkButton" onClick={signOut}>
+              sign out
+            </button>
           </div>
         </form>
       </div>
