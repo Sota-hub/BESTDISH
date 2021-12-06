@@ -13,7 +13,7 @@ const SignUpDisplay = () => {
   const signUpProcess = async () => {
     const sendingInfo = { email: email, password: password, name: name };
 
-    const response = await fetch("/users", {
+    const response = await fetch("/users/signup", {
       method: "POST",
       headers: {
         Accept: "application/json",

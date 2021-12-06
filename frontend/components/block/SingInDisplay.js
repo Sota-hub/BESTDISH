@@ -11,7 +11,7 @@ const SingInDisplay = () => {
   const signInProcess = async () => {
     const sendingInfo = { email: email, password: password };
 
-    const response = await fetch("/users", {
+    const response = await fetch("/users/signin", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -24,6 +24,23 @@ const SingInDisplay = () => {
 
     console.log(data);
   };
+
+  // const update = async () => {
+  //   const sendingInfo = { name: "taro" };
+
+  //   const response = await fetch("/users/61ad5d8f16b684ecd34aeff0", {
+  //     method: "PATCH",
+  //     headers: {
+  //       Accept: "application/json",
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(sendingInfo),
+  //   });
+
+  //   const data = await response.json();
+
+  //   console.log(data);
+  // };
 
   return (
     <main className="alignCenter mt-20">
@@ -44,6 +61,9 @@ const SingInDisplay = () => {
             >
               Sign in
             </button>
+            {/* <button type="button" className="pinkButton" onClick={update}>
+              Update
+            </button> */}
           </div>
         </form>
       </div>

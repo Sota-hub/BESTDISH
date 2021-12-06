@@ -3,8 +3,8 @@ module.exports = {
   async rewrites() {
     return [
       {
-        source: "/:search",
-        destination: "http://localhost:8000/:search",
+        source: "/:ph/:pl",
+        destination: "http://localhost:8000/:ph/:pl",
       },
     ];
   },
