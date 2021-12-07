@@ -7,7 +7,7 @@ const PostOptions = () => {
           type="text"
           name="clarification"
           placeholder="Clarification"
-          className="inputBarStyle"
+          className="postInputBarStyle"
         ></input>
       </div>
       <div className="my-4">
@@ -16,7 +16,7 @@ const PostOptions = () => {
           type="text"
           name="open-hour"
           placeholder="Open-hour"
-          className="inputBarStyle"
+          className="postInputBarStyle"
         ></input>
       </div>
       <div className="my-4">
@@ -25,7 +25,7 @@ const PostOptions = () => {
           type="text"
           name="day-off"
           placeholder="Day off"
-          className="inputBarStyle"
+          className="postInputBarStyle"
         ></input>
       </div>
       <div className="my-4">
@@ -34,7 +34,7 @@ const PostOptions = () => {
           type="text"
           name="website"
           placeholder="Website"
-          className="inputBarStyle"
+          className="postInputBarStyle"
         ></input>
       </div>
     </div>

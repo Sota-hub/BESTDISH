@@ -42,8 +42,16 @@ body {
   @apply opacity-75 text-xs;
 }
 
-.inputBarStyle {
+.postInputBarStyle {
   @apply block border-b w-[100%] h-10;
+}
+
+.InputRelateUserStyle {
+  @apply block border py-4 pl-2 mt-2 mb-8 w-[100%] rounded-sm;
+}
+
+.singleUserInfo {
+  @apply border-b border-gray-300 text-center p-4;
 }
 
 /* =============== From basic CSS ================= */

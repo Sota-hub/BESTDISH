@@ -6,7 +6,7 @@ const CommonInput = ({ setEmail, setPassword }) => {
         type="email"
         name="email"
         placeholder="Email"
-        className="block border py-4 pl-2 mt-2 mb-8 w-[100%] rounded-sm"
+        className="InputRelateUserStyle"
         onChange={(e) => setEmail(e.target.value)}
       ></input>
       <label htmlFor="password">Password</label>
@@ -14,7 +14,7 @@ const CommonInput = ({ setEmail, setPassword }) => {
         type="password"
         name="password"
         placeholder="Password"
-        className="block border py-4 pl-2 mt-2 mb-8 w-[100%] rounded-sm"
+        className="InputRelateUserStyle"
         onChange={(e) => setPassword(e.target.value)}
       ></input>
     </>

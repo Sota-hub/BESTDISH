@@ -7,7 +7,7 @@ const LoginInput = ({ base, value }) => {
         type={base}
         name={base}
         placeholder={base}
-        className="block border py-4 pl-2 mt-2 mb-8 w-[100%] rounded-sm"
+        className="InputRelateUserStyle"
       ></input>
     </>
   );

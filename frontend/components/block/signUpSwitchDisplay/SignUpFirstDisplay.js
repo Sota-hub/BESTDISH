@@ -3,6 +3,11 @@ import Link from "next/link";
 import CommonInput from "../../parts/CommonInput";
 
 const SignUpFirstDisplay = ({ setEmail, setPassword, setIsSecondPage }) => {
+  const changeToSecondDisplay = (e) => {
+    e.preventDefault();
+    setIsSecondPage(true);
+  };
+
   return (
     <>
       <CommonInput setEmail={setEmail} setPassword={setPassword} />
@@ -15,7 +20,7 @@ const SignUpFirstDisplay = ({ setEmail, setPassword, setIsSecondPage }) => {
         <button
           type="button"
           className="pinkButton"
-          onClick={() => setIsSecondPage(true)}
+          onClick={changeToSecondDisplay}
         >
           Next
         </button>

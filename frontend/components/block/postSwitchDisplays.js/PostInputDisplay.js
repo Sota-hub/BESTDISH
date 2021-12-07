@@ -20,14 +20,14 @@ const PostInputDisplay = () => {
               type="text"
               name="dish-name"
               placeholder="Dish name"
-              className="inputBarStyle"
+              className="postInputBarStyle"
             ></input>
           </div>
           <div className="my-4">
             <label>
               <span className="supportText text-orange">* </span>Rating
             </label>
-            <div className="inputBarStyle">
+            <div className="postInputBarStyle">
               <RatingStar />
             </div>
           </div>
@@ -38,7 +38,7 @@ const PostInputDisplay = () => {
             <input
               type="file"
               name="image"
-              className="inputBarStyle mt-2"
+              className="postInputBarStyle mt-2"
             ></input>
           </div>
           <div className="my-4">
@@ -49,7 +49,7 @@ const PostInputDisplay = () => {
               type="text"
               name="price"
               placeholder="Price"
-              className="inputBarStyle"
+              className="postInputBarStyle"
             ></input>
           </div>
           <div className="my-4">
@@ -60,7 +60,7 @@ const PostInputDisplay = () => {
               type="text"
               name="address"
               placeholder="Address"
-              className="inputBarStyle"
+              className="postInputBarStyle"
             ></input>
           </div>
           <div className="my-4">

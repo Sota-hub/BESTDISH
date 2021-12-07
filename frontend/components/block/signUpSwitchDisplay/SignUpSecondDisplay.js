@@ -6,7 +6,7 @@ const SignUpSecondDisplay = ({ setName, signUpProcess }) => {
         type="name"
         name="name"
         placeholder="Name"
-        className="block border py-4 pl-2 mt-2 mb-8 w-[100%] rounded-sm"
+        className="InputRelateUserStyle"
         onChange={(e) => setName(e.target.value)}
       ></input>
       <button

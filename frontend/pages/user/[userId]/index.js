@@ -1,14 +1,12 @@
 import Head from "next/head";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 
 import Header from "../../../components/layouts/Header";
 import UserDisplay from "../../../components/block/UserDisplay";
 import Footer from "../../../components/layouts/Footer";
 
 const User = () => {
-  const router = useRouter();
-
-  const userId = router.query.userId;
+  // const router = useRouter();
 
   // send a request to the backend API
   // to fetch user data with userId

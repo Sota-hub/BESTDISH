@@ -1,12 +1,16 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { useRouter } from "next/router";
 import Link from "next/link";
 
+import { UserInfoContext } from "../../contexts/UserInfoContext";
 import LoginTitle from "../ui/LoginTitle";
 import CommonInput from "../parts/CommonInput";
 
 const SingInDisplay = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const router = useRouter();
+  const { setUserInfo } = useContext(UserInfoContext);
 
   const signInProcess = async () => {
     const sendingInfo = { email: email, password: password };
@@ -22,7 +26,9 @@ const SingInDisplay = () => {
 
     const data = await response.json();
 
-    console.log(data);
+    setUserInfo(data);
+
+    router.push(`/user/${data.user._id}`);
   };
 
   // ==============================================================================================
@@ -36,46 +42,10 @@ const SingInDisplay = () => {
       },
     });
 
-    const data = await response.json();
-    console.log(data);
+    // const data = await response.json();
+
+    router.push("/");
   };
-
-  // ==============================================================================================
-
-  const profile = async () => {
-    const response = await fetch("/users/profile", {
-      method: "GET",
-      headers: {
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWFkYTYzOTUyMmI5OGEyN2ZmNmZhMTAiLCJpYXQiOjE2Mzg3NzA2MzMsImV4cCI6MTYzODg1NzAzM30.Jb_c7JymzAFWp_MZSGXq1bDBsT7n2THcMXgMOgoH11Y",
-      },
-    });
-
-    const data = await response.json();
-    console.log(data);
-  };
-
-  // ==============================================================================================
-
-  const update = async () => {
-    const sendingInfo = { email: "uuuuu@test.com" };
-
-    const response = await fetch("/users/61ada639522b98a27ff6fa10", {
-      method: "PATCH",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWFkYTYzOTUyMmI5OGEyN2ZmNmZhMTAiLCJpYXQiOjE2Mzg3NzAyMzMsImV4cCI6MTYzODg1NjYzM30.kPhEAh8onb3xYyGeXcKgbJWV7L-NGH87eEdCRZpWbdg",
-      },
-      body: JSON.stringify(sendingInfo),
-    });
-
-    const data = await response.json();
-    console.log(data);
-  };
-
-  // ==============================================================================================
 
   return (
     <main className="alignCenter mt-20">
@@ -95,12 +65,6 @@ const SingInDisplay = () => {
               onClick={signInProcess}
             >
               Sign in
-            </button>
-            <button type="button" className="pinkButton" onClick={profile}>
-              Profile
-            </button>
-            <button type="button" className="pinkButton" onClick={update}>
-              Update
             </button>
             <button type="button" className="pinkButton" onClick={signOut}>
               sign out
