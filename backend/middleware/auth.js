@@ -1,63 +1,24 @@
-// Required External Modules
-const express = require("express");
-const router = express.Router();
-const passport = require("passport");
-const querystring = require("querystring");
-require("dotenv").config();
+const jwt = require("jsonwebtoken");
+const User = require("../models/user");
 
-// Routes Definitions
-router.get(
-  "/login",
-  passport.authenticate("auth0", {
-    scope: "openid email profile",
-  }),
-  (req, res) => {
-    res.redirect("/");
-  }
-);
-
-router.get("/callback", (req, res, next) => {
-  passport.authenticate("auth0", (err, user, info) => {
-    if (err) {
-      return next(err);
-    }
-    if (!user) {
-      return res.redirect("/login");
-    }
-    req.logIn(user, (err) => {
-      if (err) {
-        return next(err);
-      }
-      const returnTo = req.session.returnTo;
-      delete req.session.returnTo;
-      res.redirect(returnTo || "/"); // /user is fine?
+const auth = async (req, res, next) => {
+  try {
+    const token = req.header("Authorization").replace("Bearer ", "");
+    const decoded = jwt.verify(token, "9E49C8459CC1FD44");
+    const user = await User.findOne({
+      _id: decoded._id,
+      "tokens.token": token,
     });
-  })(req, res, next);
-});
+    console.log(token, decoded, decoded._id, user);
 
-router.get("/logout", (req, res) => {
-  req.logOut();
+    if (!user) throw new Error();
 
-  let returnTo = req.protocol + "://" + req.hostname;
-  const port = req.connection.localPort; // req.socket.localPort is better
-
-  if (port !== undefined && port !== 80 && port !== 443) {
-    returnTo =
-      process.env.NODE_ENV === "production"
-        ? `${returnTo}/`
-        : `${returnTo}:${port}/`;
+    req.token = token;
+    req.user = user;
+    next();
+  } catch (e) {
+    res.status(401).send("Authentication is needed");
   }
+};
 
-  const logoutURL = new URL(`https://${process.env.AUTH0_DOMAIN}/v2/logout`);
-
-  const searchString = querystring.stringify({
-    client_id: process.env.AUTH0_CLIENT_ID,
-    returnTo: returnTo,
-  });
-  logoutURL.search = searchString;
-
-  res.redirect(logoutURL);
-});
-
-// Module Exports
-module.exports = router;
+module.exports = auth;

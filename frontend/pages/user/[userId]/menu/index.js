@@ -58,7 +58,7 @@ const UserMenu = () => {
       </Head>
       <Header />
       <UserMenuTopPart />
-      <DishTileList sampleData={sampleData} />
+      <DishTileList dishes={sampleData} />
       <Footer />
     </>
   );
