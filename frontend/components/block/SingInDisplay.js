@@ -26,6 +26,9 @@ const SingInDisplay = () => {
 
     const data = await response.json();
 
+    // 404 return
+
+    isAuth(true);
     setUserInfo(data);
 
     router.push(`/user/${data.user._id}`);

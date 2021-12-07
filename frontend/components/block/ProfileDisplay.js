@@ -11,7 +11,7 @@ const ProfileDisplay = () => {
         method: "GET",
         headers: {
           Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWFlYWNkNDJiYTE3YWNkZGQ0MjNjZDciLCJpYXQiOjE2Mzg4Mzc0NjAsImV4cCI6MTYzODkyMzg2MH0.J8gnGmuR2-_Su9ZWWwDECZ9H8zb4kvoALmvvw6kcEEw",
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWFlYWNkNDJiYTE3YWNkZGQ0MjNjZDciLCJpYXQiOjE2Mzg4NjEwOTgsImV4cCI6MTYzODk0NzQ5OH0.UNcA1SzxhR-0coFFmmuysZ8HAAs9e3WP8vM9kJAvt7o",
         },
       });
 
