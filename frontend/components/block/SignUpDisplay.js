@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { useRouter } from "next/router";
 
-import { UserInfoContext } from "../../contexts/UserInfoContext";
+import { UserAuthContext } from "../../contexts/UserAuthContext";
 import LoginTitle from "../ui/LoginTitle";
 import SignUpFirstDisplay from "./signUpSwitchDisplay/SignUpFirstDisplay";
 import SignUpSecondDisplay from "./signUpSwitchDisplay/SignUpSecondDisplay";
@@ -12,7 +12,7 @@ const SignUpDisplay = () => {
   const [name, setName] = useState();
   const [isSecondPage, setIsSecondPage] = useState(false);
   const router = useRouter();
-  const { userInfo, setUserInfo } = useContext(UserInfoContext);
+  const { setIsAuth, setUserInfo } = useContext(UserAuthContext);
 
   const signUpProcess = async () => {
     const sendingInfo = { email: email, password: password, name: name };
@@ -28,6 +28,7 @@ const SignUpDisplay = () => {
 
     const data = await response.json();
 
+    setIsAuth(true);
     setUserInfo(data);
 
     router.push(`/user/${data.user._id}`);

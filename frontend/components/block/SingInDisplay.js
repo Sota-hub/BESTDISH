@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
-import { UserInfoContext } from "../../contexts/UserInfoContext";
+import { UserAuthContext } from "../../contexts/UserAuthContext";
 import LoginTitle from "../ui/LoginTitle";
 import CommonInput from "../parts/CommonInput";
 
@@ -10,7 +10,7 @@ const SingInDisplay = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const router = useRouter();
-  const { setUserInfo } = useContext(UserInfoContext);
+  const { setIsAuth, setUserInfo } = useContext(UserAuthContext);
 
   const signInProcess = async () => {
     const sendingInfo = { email: email, password: password };
@@ -26,6 +26,7 @@ const SingInDisplay = () => {
 
     const data = await response.json();
 
+    setIsAuth(true);
     setUserInfo(data);
 
     router.push(`/user/${data.user._id}`);
