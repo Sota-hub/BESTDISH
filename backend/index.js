@@ -10,12 +10,6 @@ mongoose.connect("mongodb://127.0.0.1:27017/best-dish-api");
 const app = express();
 const port = process.env.PORT || 8000;
 
-// Middleware
-// app.use((req, res, next) => {
-//   console.log(req.method, req.path);
-//   next();
-// });
-
 app.use(express.json());
 app.use(dishRouter);
 app.use(userRouter);
