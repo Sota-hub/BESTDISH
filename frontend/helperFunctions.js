@@ -1,11 +1,11 @@
-export const rangeFilter = (nav, dishes, range) => {
-  return nav.geolocation.getCurrentPosition(
-    async (location) => {
-      const latitude = await location.coords.latitude;
-      const longitude = await location.coords.longitude;
+export const rangeFilter = async (dishes, range, Dishes) => {
+  navigator.geolocation.getCurrentPosition(
+    (location) => {
+      const latitude = location.coords.latitude;
+      const longitude = location.coords.longitude;
 
       if (range === 5) {
-        dishes.filter(
+        Dishes = dishes.filter(
           (dish) =>
             dish.latitude > latitude - 0.045 &&
             dish.latitude < latitude + 0.045 &&
@@ -13,8 +13,9 @@ export const rangeFilter = (nav, dishes, range) => {
             dish.longitude < longitude + 0.045
         );
       }
+
       if (range === 10) {
-        dishes.filter(
+        Dishes = dishes.filter(
           (dish) =>
             dish.latitude > latitude - 0.09 &&
             dish.latitude < latitude + 0.09 &&
@@ -22,8 +23,9 @@ export const rangeFilter = (nav, dishes, range) => {
             dish.longitude < longitude + 0.09
         );
       }
+
       if (range === 25) {
-        dishes.filter(
+        Dishes = dishes.filter(
           (dish) =>
             dish.latitude > latitude - 0.225 &&
             dish.latitude < latitude + 0.225 &&
@@ -31,8 +33,9 @@ export const rangeFilter = (nav, dishes, range) => {
             dish.longitude < longitude + 0.225
         );
       }
+
       if (range === 50) {
-        dishes.filter(
+        Dishes = dishes.filter(
           (dish) =>
             dish.latitude > latitude - 0.45 &&
             dish.latitude < latitude + 0.45 &&

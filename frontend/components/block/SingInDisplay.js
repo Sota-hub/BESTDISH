@@ -38,7 +38,7 @@ const SingInDisplay = () => {
       method: "POST",
       headers: {
         Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWFkYTYzOTUyMmI5OGEyN2ZmNmZhMTAiLCJpYXQiOjE2Mzg3NzA0OTYsImV4cCI6MTYzODg1Njg5Nn0.ypU8uUtquFjAAYPD2msVaxGSK2fNFH98zK92aydNcCA",
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWIxMzFmOGU0ZjUyYTlmNmU4NDkwMGEiLCJpYXQiOjE2MzkwMDI2MTYsImV4cCI6MTYzOTA4OTAxNn0.EA7Oi9gSEiNIDmiAjtyyVEpMyp_WkbBJfhjCJn4Vj5U",
       },
     });
 

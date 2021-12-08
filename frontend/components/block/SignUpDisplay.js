@@ -29,9 +29,8 @@ const SignUpDisplay = () => {
     const data = await response.json();
 
     setUserInfo(data);
-    console.log(userInfo);
 
-    // router.push(`/user/${data.user._id}`);
+    router.push(`/user/${data.user._id}`);
   };
 
   return (

@@ -17,19 +17,13 @@ const UserDisplay = () => {
           <Link href="/user/b/menu">
             <a className="alignCenter whiteButton">BEST DISH</a>
           </Link>
-          {/* <Link href="/user/c/menu">
-            <a className="alignCenter userHomeButton">All Menu</a>
-          </Link> */}
         </div>
       </div>
       <div className=" mb-14">
-        <DishCardList title="What's new" link="/login/signup" />
-        <DishCardList title="New in BEST DISH" link="/login/signup" />
-        <MenuCardList
-          title="Menus matched with your BEST DISH"
-          link="/login/signup"
-        />
-        <MenuCardList title="Someone’s menu" link="/login/signup" />
+        <DishCardList title="What's new" link="#" />
+        <DishCardList title="New in BEST DISH" link="#" />
+        <MenuCardList title="Menus matched with your BEST DISH" link="#" />
+        <MenuCardList title="Someone’s menu" link="#" />
       </div>
       <PostButton />
     </main>

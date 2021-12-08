@@ -1,19 +1,13 @@
-import { useState, useEffect } from "react";
-
 import DishTile from "./DishTile";
 import { rangeFilter } from "../../../helperFunctions";
 import { popularityFilter } from "../../../helperFunctions";
 
 const DishTileList = ({ dishes, sortByRange, sortByPopularity }) => {
-  // ===== Enable to use navigator =====
-  const [nav, setNav] = useState(false);
+  let Dishes;
 
-  useEffect(() => {
-    setNav(navigator);
-  }, []);
-  // ===================================
+  rangeFilter(dishes, sortByRange, Dishes);
+  console.log(Dishes);
 
-  nav && rangeFilter(nav, dishes, sortByRange);
   popularityFilter(dishes, sortByPopularity);
 
   return (
