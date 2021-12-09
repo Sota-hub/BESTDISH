@@ -12,7 +12,7 @@ router.post("/users/signup", async (req, res) => {
     const token = await user.generateToken();
     res.status(201).send({ user, token });
   } catch (e) {
-    res.status(404).send(e);
+    res.status(400).send(e);
   }
 });
 
@@ -71,7 +71,7 @@ router.patch("/users/update", auth, async (req, res) => {
     await user.save();
     res.send(user);
   } catch (e) {
-    res.status(400).send(e);
+    res.status(500).send(e);
   }
 });
 
