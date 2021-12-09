@@ -1,26 +1,50 @@
 import { useState } from "react";
 
-const ProfileUpdateDisplay = ({ Email, Password, Name, Token }) => {
-  const [email, setEmail] = useState(Email);
-  const [password, setPassword] = useState(Password);
-  const [name, setName] = useState(Name);
+const ProfileUpdateDisplay = ({ token }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
 
-  const updateProcess = async (e) => {
-    e.preventDefault();
-    const sendingInfo = { email, password, name };
-
-    const response = await fetch("/users/update", {
+  const nameUpdateProcess = async () => {
+    await fetch("/users/update", {
       method: "PATCH",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        Authorization: `Bearer ${Token}`,
+        Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify(sendingInfo),
+      body: JSON.stringify({ name: name }),
     });
 
-    const data = await response.json();
-    console.log(data);
+    setName("");
+  };
+
+  const emailUpdateProcess = async () => {
+    await fetch("/users/update", {
+      method: "PATCH",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({ email: email }),
+    });
+
+    setEmail("");
+  };
+
+  const passwordUpdateProcess = async () => {
+    await fetch("/users/update", {
+      method: "PATCH",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({ password: password }),
+    });
+
+    setPassword("");
   };
 
   return (
@@ -33,30 +57,36 @@ const ProfileUpdateDisplay = ({ Email, Password, Name, Token }) => {
           type="name"
           name="name"
           placeholder="Name"
-          className="InputRelateUserStyle"
+          className="InputRelateUserStyle mb-2"
           onChange={(e) => setName(e.target.value)}
         ></input>
+        <span className="updateButton" onClick={nameUpdateProcess}>
+          Update name
+        </span>
         <label htmlFor="email">Email</label>
         <input
           value={email}
           type="email"
           name="email"
           placeholder="Email"
-          className="InputRelateUserStyle"
+          className="InputRelateUserStyle mb-2"
           onChange={(e) => setEmail(e.target.value)}
         ></input>
+        <span className="updateButton" onClick={emailUpdateProcess}>
+          Update email
+        </span>
         <label htmlFor="password">Password</label>
         <input
           value={password}
           type="password"
           name="password"
           placeholder="Password"
-          className="InputRelateUserStyle"
+          className="InputRelateUserStyle mb-2"
           onChange={(e) => setPassword(e.target.value)}
         ></input>
-        <button className="pinkButton" onClick={updateProcess}>
-          Update
-        </button>
+        <span className="updateButton" onClick={passwordUpdateProcess}>
+          Update password
+        </span>
       </form>
     </div>
   );
