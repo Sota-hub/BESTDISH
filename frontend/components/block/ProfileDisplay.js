@@ -1,26 +1,6 @@
-import { useEffect } from "react";
-
 import ProfileUpdateDisplay from "./ProfileUpdateDisplay";
 
 const ProfileDisplay = () => {
-  let data;
-
-  useEffect(() => {
-    const getProfileProcess = async () => {
-      const response = await fetch("/users/profile", {
-        method: "GET",
-        headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWFlYWNkNDJiYTE3YWNkZGQ0MjNjZDciLCJpYXQiOjE2Mzg4Mzc0NjAsImV4cCI6MTYzODkyMzg2MH0.J8gnGmuR2-_Su9ZWWwDECZ9H8zb4kvoALmvvw6kcEEw",
-        },
-      });
-
-      data = await response.json();
-    };
-
-    getProfileProcess();
-  }, []);
-
   {
     data && (
       <>
@@ -41,7 +21,6 @@ const ProfileDisplay = () => {
         Name={}
         Token={}
       /> */}
-        ;
       </>
     );
   }

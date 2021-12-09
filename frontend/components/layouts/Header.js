@@ -1,15 +1,17 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Image from "next/image";
 import Hamburger from "hamburger-react";
 
+import { UserAuthContext } from "../../contexts/UserAuthContext";
+import MenuBar from "./header_bars/MenuBar";
 import LoginBar from "./header_bars/LoginBar";
 import SearchBar from "./header_bars/SearchBar";
-
 import searchIcon from "../../public/search.svg";
 
 const Header = () => {
   const [isBurgerOpen, setIsBurgerOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const { isAuth } = useContext(UserAuthContext);
 
   return (
     <>
@@ -42,7 +44,13 @@ const Header = () => {
           </div>
         </div>
       </header>
-      {isBurgerOpen && (
+      {isAuth && isBurgerOpen && (
+        <MenuBar
+          isBurgerOpen={isBurgerOpen}
+          setIsBurgerOpen={setIsBurgerOpen}
+        />
+      )}
+      {!isAuth && isBurgerOpen && (
         <LoginBar
           isBurgerOpen={isBurgerOpen}
           setIsBurgerOpen={setIsBurgerOpen}
