@@ -1,15 +1,15 @@
 import { useState } from "react";
 
-import PostInputDisplay from "./postSwitchDisplays.js/PostInputDisplay";
-import PostConfirmDisplay from "./postSwitchDisplays.js/PostConfirmDisplay";
+import PostFirstDisplay from "./postSwitchDisplays.js/PostFirstDisplay";
+import PostSecondDisplay from "./postSwitchDisplays.js/PostSecondDisplay";
 
 const PostDisplay = () => {
-  const [isConfirmation, setIsConfirmation] = useState(false);
+  const [isSecondPage, setIsSecondPage] = useState(false);
 
   return (
     <>
-      {/* <PostInputDisplay /> */}
-      <PostConfirmDisplay />
+      {!isSecondPage && <PostFirstDisplay setIsSecondPage={setIsSecondPage} />}
+      {isSecondPage && <PostSecondDisplay />}
     </>
   );
 };

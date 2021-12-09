@@ -1,4 +1,4 @@
-const PostConfirmDisplay = () => {
+const PostSecondDisplay = () => {
   return (
     <main className="alignCenter my-8 font-bold">
       <div className="w-[80%]">
@@ -30,4 +30,4 @@ const PostConfirmDisplay = () => {
   );
 };
 
-export default PostConfirmDisplay;
+export default PostSecondDisplay;

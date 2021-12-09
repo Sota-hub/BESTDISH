@@ -3,7 +3,7 @@ import { useState } from "react";
 import RatingStar from "../../ui/RatingStar";
 import PostOptions from "../../parts/PostOptions";
 
-const PostInputDisplay = () => {
+const PostFirstDisplay = ({ setIsSecondPage }) => {
   const [isOptionsOpen, setIsOptionsOpen] = useState(false);
 
   return (
@@ -89,17 +89,16 @@ const PostInputDisplay = () => {
             </div>
             {isOptionsOpen && <PostOptions />}
           </div>
-          <input
-            type="submit"
-            value="Next"
-            readOnly
-            className="pinkButton my-8"
-            onClick
-          ></input>
+          <span
+            className="pinkButton block text-center leading-[4em] my-8"
+            onClick={() => setIsSecondPage(true)}
+          >
+            Next
+          </span>
         </form>
       </div>
     </main>
   );
 };
 
-export default PostInputDisplay;
+export default PostFirstDisplay;
