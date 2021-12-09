@@ -6,7 +6,7 @@ import UserAuthContextProvider from "../contexts/UserAuthContext";
 function MyApp({ Component, pageProps }) {
   return (
     <UserAuthContextProvider>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </UserAuthContextProvider>
   );
 }

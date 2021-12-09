@@ -33,20 +33,24 @@ const SingInDisplay = () => {
   };
 
   // ==============================================================================================
+  // const signOut = async () => {
+  //   const response = await fetch("/users/signout", {
+  //     method: "POST",
+  //     headers: {
+  //       Authorization:
+  //         "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWIxMzFmOGU0ZjUyYTlmNmU4NDkwMGEiLCJpYXQiOjE2MzkwMDI2MTYsImV4cCI6MTYzOTA4OTAxNn0.EA7Oi9gSEiNIDmiAjtyyVEpMyp_WkbBJfhjCJn4Vj5U",
+  //     },
+  //   });
 
-  const signOut = async () => {
-    const response = await fetch("/users/signout", {
-      method: "POST",
-      headers: {
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWIxMzFmOGU0ZjUyYTlmNmU4NDkwMGEiLCJpYXQiOjE2MzkwMDI2MTYsImV4cCI6MTYzOTA4OTAxNn0.EA7Oi9gSEiNIDmiAjtyyVEpMyp_WkbBJfhjCJn4Vj5U",
-      },
-    });
+  //   // const data = await response.json();
 
-    // const data = await response.json();
-
-    router.push("/");
-  };
+  //   router.push("/");
+  // };
+  // ==============================================================================================
+  // <button type="button" className="pinkButton" onClick={signOut}>
+  //   sign out
+  // </button>
+  // ==============================================================================================
 
   return (
     <main className="alignCenter mt-20">
@@ -66,9 +70,6 @@ const SingInDisplay = () => {
               onClick={signInProcess}
             >
               Sign in
-            </button>
-            <button type="button" className="pinkButton" onClick={signOut}>
-              sign out
             </button>
           </div>
         </form>

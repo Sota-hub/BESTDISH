@@ -3,7 +3,7 @@ import SearchFormWithBg from "../parts/SearchFormWithBg";
 const HomeDisplay = () => {
   return (
     <main>
-      <SearchFormWithBg />;
+      <SearchFormWithBg />
     </main>
   );
 };
