@@ -5,15 +5,16 @@ import Link from "next/link";
 import { UserAuthContext } from "../../../contexts/UserAuthContext";
 
 const MenuBar = ({ isBurgerOpen, setIsBurgerOpen }) => {
-  const { setIsAuth, setUserInfo } = useContext(UserAuthContext);
+  const { setIsAuth, userInfo, setUserInfo } = useContext(UserAuthContext);
   const router = useRouter();
+
+  console.log("user information", userInfo);
 
   const signOutProcess = async () => {
     await fetch("/users/signout", {
       method: "POST",
       headers: {
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWIxNzA5ZWFlM2I4ZGJiM2YwNzJhODgiLCJpYXQiOjE2MzkwMTg2NTR9.fojxsoHNtZq7ZYeHnm4-fo5XCTsVHW3t3ig_WNQUOs8",
+        Authorization: `Bearer ${userInfo.token}`,
       },
     });
 

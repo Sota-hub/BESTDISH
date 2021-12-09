@@ -7,8 +7,6 @@ const SearchDisplay = ({ dishes }) => {
   const [sortByPopularity, setSortByPopularity] = useState("saved");
   const [sortByRange, setSortByRange] = useState(0);
 
-  // console.log(sortByRange);
-
   return (
     <main>
       <div className="alignCenter h-64 bg-black pattern-background">
