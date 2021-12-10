@@ -1,9 +1,14 @@
 const express = require("express");
 const Dish = require("../models/dish");
+const auth = require("../middleware/auth");
 const router = express.Router();
 
-router.post("dishes/post", async (req, res) => {
-  const dish = new Dish(req.body);
+router.post("/dishes/post", auth, async (req, res) => {
+  const id = req.user._id;
+  const dish = new Dish({
+    ...req.body,
+    userId: id,
+  });
 
   try {
     await dish.save();
@@ -13,7 +18,7 @@ router.post("dishes/post", async (req, res) => {
   }
 });
 
-router.get("/search", async (req, res) => {
+router.get("/dishes/search", async (req, res) => {
   const dishName = req.query.dishName;
   const price = +req.query.price;
 

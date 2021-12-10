@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
 const dishSchema = new mongoose.Schema({
-  postUserId: String,
   dishName: String,
   evaluation: Number,
   price: Number,
@@ -16,6 +15,7 @@ const dishSchema = new mongoose.Schema({
   latitude: Number,
   longitude: Number,
   postDate: Date,
+  userId: String,
   // image
 });
 
