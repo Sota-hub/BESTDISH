@@ -18,7 +18,7 @@ const SearchForm = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     const words = refs.current.map((word) => word.current.value);
-    router.push(`/search?dishName=${words[0]}&price=${words[1]}`);
+    router.push(`/dishes/search?dishName=${words[0]}&price=${words[1]}`);
   };
 
   return (

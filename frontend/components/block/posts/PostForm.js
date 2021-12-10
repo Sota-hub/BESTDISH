@@ -1,8 +1,14 @@
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import {
+  useForm,
+  Controller,
+  useFormContext,
+  // FormProvider,
+} from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup/dist/yup";
 import * as yup from "yup";
 
+import DropZone from "../../parts/DropZone";
 import PostOptions from "./PostOptions";
 
 const schema = yup.object().shape({
@@ -18,6 +24,9 @@ const schema = yup.object().shape({
 
 const PostForm = ({ setPostData, setIsConfirmPage }) => {
   const [isOptionsOpen, setIsOptionsOpen] = useState(false);
+  // const methods = useForm();
+  const { control } = useFormContext();
+
   const {
     register,
     handleSubmit,
@@ -37,6 +46,7 @@ const PostForm = ({ setPostData, setIsConfirmPage }) => {
     <>
       <h1 className="text-2xl ml-2 w-[80%]  ">Post</h1>
       <p className="text-orange text-xs ml-3">* is required</p>
+      {/* <FormProvider {...methods}> */}
       <form onSubmit={handleSubmit(submitHandler)}>
         <div className="my-4">
           <label htmlFor="dishName">
@@ -72,11 +82,17 @@ const PostForm = ({ setPostData, setIsConfirmPage }) => {
           <label htmlFor="image">
             <span className="supportText text-orange">* </span>Image
           </label>
-          <input
-            type="file"
+          {/* =========================================================================================== */}
+          <Controller
+            control={control}
             name="image"
-            className="postInputBarStyle mt-2"
-          ></input>
+            rules={{ required: true }}
+            defaultValue=""
+            render={({ onChange }) => (
+              <DropZone onChange={(e) => onChange(e.target.files[0])} />
+            )}
+          />
+          {/* =========================================================================================== */}
         </div>
         <div className="my-4">
           <label htmlFor="price">
@@ -136,6 +152,7 @@ const PostForm = ({ setPostData, setIsConfirmPage }) => {
           className="pinkButton block text-center leading-[4em] my-8 cursor-pointer"
         ></input>
       </form>
+      {/* </FormProvider> */}
     </>
   );
 };
