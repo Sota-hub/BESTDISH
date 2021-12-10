@@ -1,9 +1,9 @@
 import { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 
-const DropZone = ({ onChange }) => {
+const DropZone = ({ onChange, setValue }) => {
   const onDrop = useCallback((acceptedFiles) => {
-    console.log(acceptedFiles);
+    setValue("file", acceptedFiles[0]);
   }, []);
 
   const { getRootProps, getInputProps, isDragAccept, isDragReject } =
@@ -11,7 +11,7 @@ const DropZone = ({ onChange }) => {
       onDrop,
       multiple: false,
       accept: "image/jpeg, image/png, image/gif, image/svg",
-      maxSize: 100000,
+      // maxSize: 1000000,
     });
 
   return (
