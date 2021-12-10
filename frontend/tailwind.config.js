@@ -13,8 +13,9 @@ module.exports = {
       colors: {
         pink: "#F24B6A",
         orange: "#F2884B",
-        black: "	#232B2B",
+        black: " #232B2B",
         white: "#FEFEFE",
+        red: "#E32227",
       },
       zIndex: {
         "-10": "-10",

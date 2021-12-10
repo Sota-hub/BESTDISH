@@ -4,7 +4,7 @@ import Head from "next/head";
 import { UserAuthContext } from "../../../../contexts/UserAuthContext";
 import Header from "../../../../components/layouts/Header";
 import NotAuthenticated from "../../../../components/foundations/NotAuthenticated";
-import PostDisplay from "../../../../components/block/PostDisplay";
+import PostDisplay from "../../../../components/block/posts/PostDisplay";
 import Footer from "../../../../components/layouts/Footer";
 
 const Post = () => {
