@@ -27,12 +27,12 @@ const SignUpDisplay = () => {
       body: JSON.stringify(sendingInfo),
     });
 
-    const data = await response.json();
-
-    if (!data.ok) {
+    if (!response.ok) {
       setIsSucceed(false);
       return;
     }
+
+    const data = await response.json();
 
     if (typeof window !== "undefined") {
       localStorage.setItem("token", data.token);

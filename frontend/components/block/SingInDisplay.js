@@ -25,12 +25,12 @@ const SingInDisplay = () => {
       body: JSON.stringify(sendingInfo),
     });
 
-    const data = await response.json();
-
-    if (!data.ok) {
+    if (!response.ok) {
       setIsSucceed(false);
       return;
     }
+
+    const data = await response.json();
 
     setIsAuth(true);
     setUserInfo(data);
