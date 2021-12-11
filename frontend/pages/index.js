@@ -24,10 +24,3 @@ const Home = () => {
 };
 
 export default Home;
-
-// (latitude)        (km)
-// 1               = 111
-// 0.045           = 5
-// 0.09            = 10
-// 0.225           = 25
-// 0.45            = 50

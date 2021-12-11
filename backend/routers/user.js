@@ -47,11 +47,10 @@ router.post("/users/signout", auth, async (req, res) => {
   }
 });
 
-// Display authorized user profile
+// Get authorized user profile
 router.get("/users/profile", auth, async (req, res) => {
   const user = req.user;
   const token = req.token;
-
   res.send({ user, token });
 });
 
