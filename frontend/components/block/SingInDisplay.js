@@ -7,6 +7,7 @@ import LoginTitle from "../ui/LoginTitle";
 import CommonInput from "../parts/CommonInput";
 
 const SingInDisplay = () => {
+  const [isSucceed, setIsSucceed] = useState(true);
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const router = useRouter();
@@ -26,14 +27,28 @@ const SingInDisplay = () => {
 
     const data = await response.json();
 
+    if (!data.ok) {
+      setIsSucceed(false);
+      return;
+    }
+
     setIsAuth(true);
     setUserInfo(data);
+
+    if (typeof window !== "undefined") {
+      localStorage.setItem("token", data.token);
+    }
 
     router.push(`/user/${data.user._id}`);
   };
 
   return (
     <main className="alignCenter mt-20">
+      {!isSucceed && (
+        <div className="fixed top-0 left-0 w-[100%] h-14 leading-[3.5em] text-red border border-red text-center">
+          Incorrect email or password
+        </div>
+      )}
       <div className="w-[80%]">
         <LoginTitle sign="sign in" />
         <form className="w-[100%]">

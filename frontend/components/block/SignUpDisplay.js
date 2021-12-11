@@ -7,6 +7,7 @@ import SignUpFirstDisplay from "./signUpSwitchDisplay/SignUpFirstDisplay";
 import SignUpSecondDisplay from "./signUpSwitchDisplay/SignUpSecondDisplay";
 
 const SignUpDisplay = () => {
+  const [isSucceed, setIsSucceed] = useState(true);
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [name, setName] = useState();
@@ -28,6 +29,15 @@ const SignUpDisplay = () => {
 
     const data = await response.json();
 
+    if (!data.ok) {
+      setIsSucceed(false);
+      return;
+    }
+
+    if (typeof window !== "undefined") {
+      localStorage.setItem("token", data.token);
+    }
+
     setIsAuth(true);
     setUserInfo(data);
 
@@ -36,6 +46,11 @@ const SignUpDisplay = () => {
 
   return (
     <main className="alignCenter mt-20">
+      {!isSucceed && (
+        <div className="fixed top-0 left-0 w-[100%] h-14 leading-[3.5em] text-red border border-red text-center">
+          Sorry... something went wrong
+        </div>
+      )}
       <div className="w-[80%]">
         <LoginTitle sign="sign up" />
         <form action="/users" method="post" className="w-[100%]">
