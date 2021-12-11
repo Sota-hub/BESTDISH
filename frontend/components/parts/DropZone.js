@@ -1,9 +1,22 @@
-import { useCallback } from "react";
+import { useState, useCallback } from "react";
+import Image from "next/image";
 import { useDropzone } from "react-dropzone";
 
-const DropZone = ({ onChange, setValue }) => {
+import fileIcon from "../../public/file.svg";
+
+const DropZone = ({ setValue }) => {
+  const [fileName, setFileName] = useState("");
+
   const onDrop = useCallback((acceptedFiles) => {
-    setValue("file", acceptedFiles[0]);
+    const file = acceptedFiles[0];
+
+    setFileName(file.name);
+
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      setValue("file", reader.result);
+    };
   }, []);
 
   const { getRootProps, getInputProps, isDragAccept, isDragReject } =
@@ -11,7 +24,7 @@ const DropZone = ({ onChange, setValue }) => {
       onDrop,
       multiple: false,
       accept: "image/jpeg, image/png, image/gif, image/svg",
-      // maxSize: 1000000,
+      maxSize: 1600000,
     });
 
   return (
@@ -24,7 +37,7 @@ const DropZone = ({ onChange, setValue }) => {
         ${isDragReject && "border-red"}
         `}
       >
-        <input {...getInputProps({ onChange })} />
+        <input {...getInputProps()} />
         <div>
           <p className="text-white text-center text-lg my-2">
             Upload your image
@@ -32,6 +45,17 @@ const DropZone = ({ onChange, setValue }) => {
           <p className="text-white text-center text-xs my-2">
             JPEG / PNG / GIF / SVG
           </p>
+          {fileName && (
+            <div className="alignCenter bg-white h-20 rounded-md mt-4 p-4 max-w-[215px]">
+              <Image
+                src={fileIcon}
+                alt="file icon"
+                width="35px"
+                height="35px"
+              />
+              <p className="ml-1">{fileName}</p>
+            </div>
+          )}
         </div>
       </div>
     </div>

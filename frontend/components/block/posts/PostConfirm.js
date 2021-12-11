@@ -1,16 +1,19 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
+import { useRouter } from "next/router";
 
 import { UserAuthContext } from "../../../contexts/UserAuthContext";
 
 const PostConfirm = ({ postData, setPostData }) => {
-  const [best, setBest] = useState();
   const { userInfo } = useContext(UserAuthContext);
+  const router = useRouter();
+
+  const changeBest = (e) => {
+    setPostData((prevState) => {
+      return { ...prevState, best: +e.target.value };
+    });
+  };
 
   const postDish = async () => {
-    setPostData((prevState) => {
-      return { ...prevState, best };
-    });
-
     await fetch("/dishes/post", {
       method: "POST",
       headers: {
@@ -21,8 +24,7 @@ const PostConfirm = ({ postData, setPostData }) => {
       body: JSON.stringify(postData),
     });
 
-    // const data = await response.json();
-    // console.log(data);
+    router.replace(`/user/${userInfo.user._id}`);
   };
 
   return (
@@ -38,8 +40,7 @@ const PostConfirm = ({ postData, setPostData }) => {
           BEST DISH?
         </h1>
         <select
-          value={best}
-          onChange={(e) => setBest(+e.target.value)}
+          onChange={changeBest}
           className="w-[100%] h-24 border rounded-sm text-2xl p-4 my-8"
         >
           <option value="0">No</option>

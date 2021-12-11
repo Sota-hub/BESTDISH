@@ -24,5 +24,3 @@ const MenuDetail = () => {
 };
 
 export default MenuDetail;
-
-// fetch here?

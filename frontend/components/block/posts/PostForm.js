@@ -11,6 +11,7 @@ const schema = yup.object().shape({
   evaluation: yup.number().required().moreThan(0).lessThan(5.1),
   price: yup.number().required(),
   address: yup.string().required(),
+  description: yup.string(),
   clarification: yup.string(),
   openHour: yup.string(),
   dayOff: yup.string(),
@@ -73,19 +74,6 @@ const PostForm = ({ setPostData, setIsConfirmPage }) => {
           )}
         </div>
         <div className="my-4">
-          <label htmlFor="image">
-            <span className="supportText text-orange">* </span>Image
-          </label>
-          {/* =========================================================================================== */}
-          <Controller
-            control={control} // This object contains methods for registering components into React Hook Form.
-            defaultValue=""
-            {...register("file")}
-            render={() => <DropZone setValue={setValue} />}
-          />
-          {/* =========================================================================================== */}
-        </div>
-        <div className="my-4">
           <label htmlFor="price">
             <span className="supportText text-orange">* </span>Price
           </label>
@@ -110,6 +98,24 @@ const PostForm = ({ setPostData, setIsConfirmPage }) => {
             {...register("address")}
           ></input>
           {errors.rating && <p className="text-red">Address must be string</p>}
+        </div>
+        <div className="my-4">
+          <label htmlFor="description">Description</label>
+          <textarea
+            name="description"
+            placeholder="Description"
+            className="block h-24 border w-[100%] mt-2 p-1"
+            {...register("description")}
+          />
+        </div>
+        <div className="my-4">
+          <label htmlFor="image">Image</label>
+          <Controller
+            control={control}
+            defaultValue=""
+            {...register("file")}
+            render={() => <DropZone setValue={setValue} />}
+          />
         </div>
         <div className="my-4">
           <div
