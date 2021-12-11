@@ -8,6 +8,7 @@ router.post("/dishes/post", auth, async (req, res) => {
   const dish = new Dish({
     ...req.body,
     userId: id,
+    postDate: new Date(),
   });
 
   try {

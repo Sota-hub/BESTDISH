@@ -16,7 +16,8 @@ const dishSchema = new mongoose.Schema({
   longitude: Number,
   postDate: Date,
   userId: String,
-  // image
+  best: Number,
+  file: String,
 });
 
 const Dish = mongoose.model("Dish", dishSchema);
