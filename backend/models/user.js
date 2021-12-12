@@ -19,6 +19,12 @@ const userSchema = new mongoose.Schema({
   ],
 });
 
+userSchema.virtual("dishes", {
+  ref: "Dish",
+  localField: "_id",
+  foreignField: "userId",
+});
+
 // Hide critical information
 userSchema.methods.toJSON = function () {
   const userObject = this.toObject();
