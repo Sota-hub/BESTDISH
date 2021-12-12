@@ -7,8 +7,6 @@ const PostDisplay = () => {
   const [postData, setPostData] = useState({});
   const [isConfirmPage, setIsConfirmPage] = useState(false);
 
-  console.log(postData);
-
   return (
     <>
       <main className="alignCenter">

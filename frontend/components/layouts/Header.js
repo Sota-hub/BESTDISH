@@ -1,4 +1,5 @@
 import { useState, useContext } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import Hamburger from "hamburger-react";
 
@@ -11,12 +12,14 @@ import searchIcon from "../../public/search.svg";
 const Header = () => {
   const [isBurgerOpen, setIsBurgerOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const { isAuth } = useContext(UserAuthContext);
+  const { isAuth, userInfo } = useContext(UserAuthContext);
 
   return (
     <>
       <header className="alignCenter justify-between m-2">
-        <div className="ml-4 text-xl">BESTDISH</div>
+        <Link href={userInfo ? `/user/${userInfo.user._id}` : "/"}>
+          <a className="block ml-4 text-xl">BESTDISH</a>
+        </Link>
         <div className="alignCenter  justify-end m-2">
           <div
             className={
