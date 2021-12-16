@@ -4,7 +4,7 @@ const auth = require("../middleware/auth");
 const router = express.Router();
 
 // Sign up
-router.post("/users/signup", async (req, res) => {
+router.post("/signup", async (req, res) => {
   const user = new User(req.body);
 
   try {
@@ -17,7 +17,7 @@ router.post("/users/signup", async (req, res) => {
 });
 
 // Sign in
-router.post("/users/signin", async (req, res) => {
+router.post("/signin", async (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
 
@@ -31,7 +31,7 @@ router.post("/users/signin", async (req, res) => {
 });
 
 // Sign out
-router.post("/users/signout", auth, async (req, res) => {
+router.post("/signout", auth, async (req, res) => {
   const user = req.user;
   const Token = req.token;
 
@@ -48,14 +48,14 @@ router.post("/users/signout", auth, async (req, res) => {
 });
 
 // Get authorized user profile
-router.get("/users/profile", auth, async (req, res) => {
+router.get("/profile", auth, async (req, res) => {
   const user = req.user;
   const token = req.token;
   res.send({ user, token });
 });
 
 // Update user profile
-router.patch("/users/update", auth, async (req, res) => {
+router.patch("/update", auth, async (req, res) => {
   const user = req.user;
   const updates = Object.keys(req.body);
   const allowedUpdates = ["name", "email", "password"];
