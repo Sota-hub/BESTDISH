@@ -1,5 +1,6 @@
 const express = require("express");
 const Dish = require("../models/dish");
+const User = require("../models/user");
 const auth = require("../middleware/auth");
 const router = express.Router();
 
@@ -24,13 +25,20 @@ router.get("/dishes/search", async (req, res) => {
   const price = +req.query.price;
 
   try {
-    const dishes = await Dish.find({ dishName: dishName, price: price });
+    const dishes = await Dish.find({ dishName, price });
+
     if (!dishes) return res.status(404).send("No menu matched");
 
     res.send(dishes);
   } catch (e) {
     res.status(500).send("Something went wrong");
   }
+});
+
+router.get("/dishes/menu/:id", async (req, res) => {
+  const user = await User.findById(req.params.id);
+  await user.populate(["dishes"]);
+  res.send(user.dishes);
 });
 
 module.exports = router;
