@@ -5,8 +5,6 @@ import MenuDetailDisplay from "../../../../components/block/MenuDetailDisplay";
 import Footer from "../../../../components/layouts/Footer";
 
 const MenuDetail = ({ dish }) => {
-  console.log(dish);
-
   return (
     <>
       <Head>
@@ -29,7 +27,6 @@ export async function getServerSideProps({ query }) {
   const response = await fetch(
     `http://localhost:8000/dishes/${query.userId}/${query.menuId}`
   );
-  console.log(response);
   const dish = await response.json();
 
   return {

@@ -1,12 +1,12 @@
 import Link from "next/link";
 
-const NotLoggedInBar = ({ isLoggedIn, setIsLoggedIn }) => {
+const NotLoggedInBar = ({ toggleLoginBar, setToggleLoginBar }) => {
   return (
     <>
       <div
         className="overlay"
         onClick={() => {
-          setIsLoggedIn(!isLoggedIn);
+          setToggleLoginBar(!toggleLoginBar);
         }}
       ></div>
       <div
@@ -19,13 +19,13 @@ const NotLoggedInBar = ({ isLoggedIn, setIsLoggedIn }) => {
             <h1 className="text-center mb-8 text-2xl">
               Please sign in / up to post
             </h1>
-            <Link href="/login/signup">
+            <Link href="/signup">
               <a className="block bg-pink text-white w-[100%]   h-12 leading-[48px] text-center rounded-md">
                 Sign up
               </a>
             </Link>
             <div className="my-4"></div>
-            <Link href="/login/signin">
+            <Link href="/signin">
               <a className="block bg-white text-pink w-[100%]   h-12 leading-[48px] text-center rounded-md border border-pink">
                 Sign in
               </a>

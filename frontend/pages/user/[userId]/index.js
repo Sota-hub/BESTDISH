@@ -33,4 +33,13 @@ const User = () => {
   );
 };
 
+// export async function getServerSideProps({ query }) {
+//   const response = await fetch();
+//   const data = await response.json();
+
+//   return {
+//     props: {},
+//   };
+// }
+
 export default User;

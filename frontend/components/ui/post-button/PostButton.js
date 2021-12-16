@@ -1,26 +1,28 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useRouter } from "next/router";
 
+import { UserAuthContext } from "../../../contexts/UserAuthContext";
 import NotLoggedInBar from "./NotLoggedInBar";
 
 const PostButton = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [toggleLoginBar, setToggleLoginBar] = useState(false);
+  const { isAuth } = useContext(UserAuthContext);
   const router = useRouter();
 
-  const whetherLoggedIn = (e) => {
+  const judgeIfLogin = (e) => {
     e.preventDefault();
 
-    // if () {
-    setIsLoggedIn(!isLoggedIn);
-    //   return;
-    // }
+    if (!isAuth) {
+      setToggleLoginBar(true);
+      return;
+    }
 
-    // router.push("/login/signup");
+    router.push("/user/61b2844c22d05f0e28eee31d/post");
   };
 
   return (
     <>
-      <div className="fixed bottom-8 right-8" onClick={whetherLoggedIn}>
+      <div className="fixed bottom-8 right-8" onClick={judgeIfLogin}>
         <div className="relative">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -38,8 +40,11 @@ const PostButton = () => {
           <div className="absolute top-3 left-3 w-16 h-16 bg-white rounded-[50%] -z-10"></div>
         </div>
       </div>
-      {isLoggedIn && (
-        <NotLoggedInBar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+      {toggleLoginBar && (
+        <NotLoggedInBar
+          toggleLoginBar={toggleLoginBar}
+          setToggleLoginBar={setToggleLoginBar}
+        />
       )}
     </>
   );
