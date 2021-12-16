@@ -4,7 +4,9 @@ import Header from "../../../../components/layouts/Header";
 import MenuDetailDisplay from "../../../../components/block/MenuDetailDisplay";
 import Footer from "../../../../components/layouts/Footer";
 
-const MenuDetail = () => {
+const MenuDetail = ({ dish }) => {
+  console.log(dish);
+
   return (
     <>
       <Head>
@@ -17,10 +19,24 @@ const MenuDetail = () => {
         />
       </Head>
       <Header />
-      <MenuDetailDisplay />
+      <MenuDetailDisplay dish={dish} />
       <Footer />
     </>
   );
 };
+
+export async function getServerSideProps({ query }) {
+  const response = await fetch(
+    `http://localhost:8000/dishes/${query.userId}/${query.menuId}`
+  );
+  console.log(response);
+  const dish = await response.json();
+
+  return {
+    props: {
+      dish,
+    },
+  };
+}
 
 export default MenuDetail;

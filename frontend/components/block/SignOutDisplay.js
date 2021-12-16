@@ -37,7 +37,7 @@ const SignOutDisplay = () => {
         <button className="pinkButton" onClick={signOutProcess}>
           Sign out
         </button>
-        <Link href={`/user/${userInfo.user._id}`}>
+        <Link href={userInfo ? `/user/${userInfo.user._id}` : "/"}>
           <a className="whiteButton block text-center leading-[4em]">Cancel</a>
         </Link>
       </div>

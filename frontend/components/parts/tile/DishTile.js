@@ -7,7 +7,7 @@ const DishTile = ({ dish }) => {
   const router = useRouter();
 
   const goToDetailPage = () => {
-    router.push(`/user/${dish.postUserId}/menu/${dish._id}`);
+    router.push(`/user/${dish.userId}/menu/${dish._id}`);
   };
 
   return (

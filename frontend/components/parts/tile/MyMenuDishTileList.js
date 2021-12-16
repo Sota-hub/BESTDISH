@@ -1,4 +1,4 @@
-import { useEffect, useContext } from "react";
+import { useContext } from "react";
 
 import { UserAuthContext } from "../../../contexts/UserAuthContext";
 import DishTile from "./DishTile";
@@ -10,14 +10,16 @@ const MyMenuDishTileList = () => {
 
   return (
     <div className="alignCenter mb-8">
-      <div className=" w-[90%]">
-        {loading && <p>Loading...</p>}
-        {error && <p>Something went wrong</p>}
-        {!data.length && <p>Not matched any dish...</p>}
-        {data?.map((dish) => (
-          <DishTile key={dish._id} dish={dish} />
-        ))}
-      </div>
+      {data && (
+        <div className=" w-[90%]">
+          {loading && <p>Loading...</p>}
+          {error && <p className="text-red">Something went wrong</p>}
+          {!data.length && <p>Not matched any dish...</p>}
+          {data.map((dish) => (
+            <DishTile key={dish._id} dish={dish} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
