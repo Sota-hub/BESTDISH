@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import SearchForm from "../parts/SearchForm";
-import DishTileList from "../parts/tile/DishTileList";
+import SearchDishTileList from "../parts/tile/SearchDishTileList";
 
 const SearchDisplay = ({ dishes }) => {
   const [sortByPopularity, setSortByPopularity] = useState("saved");
@@ -40,7 +40,7 @@ const SearchDisplay = ({ dishes }) => {
         </div>
       </div>
       <div>
-        <DishTileList
+        <SearchDishTileList
           dishes={dishes}
           sortByRange={sortByRange}
           sortByPopularity={sortByPopularity}

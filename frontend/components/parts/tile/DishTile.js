@@ -1,7 +1,3 @@
-// ============== SAMPLE IMAGE ==============
-import BG1 from "../../../public/bg-1.jpg";
-// ==========================================
-
 import { useRouter } from "next/router";
 import Image from "next/image";
 
@@ -20,9 +16,13 @@ const DishTile = ({ dish }) => {
       onClick={goToDetailPage}
     >
       <div className="relative w-[50%]">
-        <Image src={/*dish.image*/ BG1} alt={`${dish.dishName} image`}></Image>
+        <Image
+          src={dish.file}
+          alt={`${dish.dishName} image`}
+          layout="fill"
+        ></Image>
       </div>
-      <div className="alignCenter w-[50%] h-[100%] pl-4">
+      <div className="alignCenter justify-start w-[50%] h-[100%] pl-4">
         <div>
           <h1 className="font-bold text-lg">{dish.dishName}</h1>
           <RatingStar evaluation={dish.evaluation} />

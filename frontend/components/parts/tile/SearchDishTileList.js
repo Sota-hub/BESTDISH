@@ -2,7 +2,7 @@ import DishTile from "./DishTile";
 import { rangeFilter } from "../../../helperFunctions";
 import { popularityFilter } from "../../../helperFunctions";
 
-const DishTileList = ({ dishes, sortByRange, sortByPopularity }) => {
+const SearchDishTileList = ({ dishes, sortByRange, sortByPopularity }) => {
   let Dishes;
 
   rangeFilter(dishes, sortByRange, Dishes);
@@ -22,4 +22,4 @@ const DishTileList = ({ dishes, sortByRange, sortByPopularity }) => {
   );
 };
 
-export default DishTileList;
+export default SearchDishTileList;
