@@ -74,4 +74,50 @@ router.patch("/update", auth, async (req, res) => {
   }
 });
 
+// Add or remove a dish
+router.patch("/save", auth, async (req, res) => {
+  const user = req.user;
+  const userId = req.body.userId;
+  const dishId = req.body.dishId;
+
+  // await User.findOne({
+  //   _id: user._id,
+  //   favorites: { userId, dishId },
+  // });
+
+  const includeUserId = user.favorites.some(
+    (favorite) => favorite.userId === userId
+  );
+
+  const includeDishId = user.favorites.some(
+    (favorite) => favorite.dishId === dishId
+  );
+
+  try {
+    if (includeUserId && includeDishId) {
+      user.favorites = user.favorites.filter((favorite) => {
+        // return favorite.userId !== userId && favorite.dishId !== dishId
+        if (favorite.userId === userId) {
+          if (favorite.dishId === dishId) return false;
+          else return true;
+        }
+        return true;
+      });
+    } else {
+      user.favorites.push({ userId, dishId });
+    }
+
+    await user.save();
+    res.status(201).send(user);
+  } catch (e) {
+    res.status(500).send(e);
+  }
+});
+
+// Get authorized user favorites
+router.get("/favorites", auth, async (req, res) => {
+  const user = req.user;
+  res.send({ favorites: user.favorites });
+});
+
 module.exports = router;

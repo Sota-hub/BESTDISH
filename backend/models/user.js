@@ -17,6 +17,16 @@ const userSchema = new mongoose.Schema({
       },
     },
   ],
+  favorites: [
+    {
+      userId: {
+        type: String,
+      },
+      dishId: {
+        type: String,
+      },
+    },
+  ],
 });
 
 userSchema.virtual("dishes", {
