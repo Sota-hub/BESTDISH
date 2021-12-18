@@ -20,8 +20,8 @@ const UserDisplay = () => {
         </div>
       </div>
       <div className=" mb-14">
-        <DishCardList title="What's new(follower's)" link="#" />
-        <DishCardList title="New in BEST DISH(follower's)" link="#" />
+        <DishCardList title="What's new" link="#" />
+        <DishCardList title="New in BEST DISH" link="#" />
         <MenuCardList title="Menus matched with your BEST DISH" link="#" />
       </div>
       <PostButton />

@@ -1,13 +1,59 @@
+import { useState, useEffect } from "react";
 import Image from "next/dist/client/image";
 
 import RatingStar from "../ui/RatingStar";
 import PieceOfInfo from "../parts/PieceOfInfo";
 import MenuCardList from "../parts/card/MenuCardList";
 
+import { useContext } from "react";
+import { UserAuthContext } from "../../contexts/UserAuthContext";
+
 const MenuDetailDisplay = ({ dish }) => {
-  const saveDish = (e) => {
+  const dishId = dish._id;
+  const userId = dish.userId;
+
+  const [isSaved, setIsSaved] = useState(false);
+  const { userInfo } = useContext(UserAuthContext);
+
+  useEffect(() => {
+    (async () => {
+      const response = await fetch("/users/favorites", {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${userInfo.token}`,
+        },
+      });
+
+      const data = await response.json();
+      console.log(data.favorites);
+
+      data.favorites.map((favorite) => {
+        if (favorite.userId === userId && favorite.dishId === dishId)
+          setIsSaved(true);
+      });
+    })();
+  }, []);
+
+  const saveDish = async (e) => {
     e.preventDefault();
-    console.log("Saved!");
+
+    try {
+      const response = await fetch("/users/save", {
+        method: "PATCH",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${userInfo.token}`,
+        },
+        body: JSON.stringify({ userId, dishId }),
+      });
+
+      if (!response.ok) throw new Error("Something went wrong...");
+
+      setIsSaved(!isSaved);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (
@@ -16,8 +62,15 @@ const MenuDetailDisplay = ({ dish }) => {
         <div className="w-[90%]">
           <h1 className="text-4xl mb-2">{dish.dishName}</h1>
           <RatingStar evaluation={dish.evaluation} />
-          <button className="whiteButton w-[50%] h-12 mt-4" onClick={saveDish}>
-            Save this dish
+          <button
+            className={
+              isSaved
+                ? "pinkButton w-[50%] h-12 mt-4"
+                : "whiteButton w-[50%] h-12 mt-4"
+            }
+            onClick={saveDish}
+          >
+            {isSaved ? "Saved!" : "Save this dish"}
           </button>
         </div>
       </div>

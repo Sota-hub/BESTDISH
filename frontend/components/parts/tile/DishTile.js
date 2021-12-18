@@ -12,7 +12,7 @@ const DishTile = ({ dish }) => {
 
   return (
     <div
-      className="flex border-b border-gray-300 pb-4 mb-4 cursor-pointer"
+      className="flex border-b border-gray-300 pb-4 mb-4 cursor-pointer min-h-[120px]"
       onClick={goToDetailPage}
     >
       <div className="relative w-[50%]">

@@ -13,10 +13,11 @@ const ProfileUpdateDisplay = ({ token }) => {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify({ name: name }),
+      body: JSON.stringify({ name }),
     });
 
     setName("");
+    window.location.reload();
   };
 
   const emailUpdateProcess = async () => {
@@ -27,10 +28,11 @@ const ProfileUpdateDisplay = ({ token }) => {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify({ email: email }),
+      body: JSON.stringify({ email }),
     });
 
     setEmail("");
+    window.location.reload();
   };
 
   const passwordUpdateProcess = async () => {
@@ -41,10 +43,11 @@ const ProfileUpdateDisplay = ({ token }) => {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify({ password: password }),
+      body: JSON.stringify({ password }),
     });
 
     setPassword("");
+    window.location.reload();
   };
 
   return (

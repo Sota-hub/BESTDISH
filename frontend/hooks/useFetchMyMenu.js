@@ -5,7 +5,7 @@ const fetcher = async (url) => {
   return response.json();
 };
 
-const fetchMyMenu = (id) => {
+const useFetchMyMenu = (id) => {
   const { data, error } = useSWR(`/dishes/menu/${id}`, fetcher);
   return {
     data,
@@ -14,4 +14,4 @@ const fetchMyMenu = (id) => {
   };
 };
 
-export default fetchMyMenu;
+export default useFetchMyMenu;

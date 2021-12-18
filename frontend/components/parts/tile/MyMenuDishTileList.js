@@ -2,11 +2,11 @@ import { useContext } from "react";
 
 import { UserAuthContext } from "../../../contexts/UserAuthContext";
 import DishTile from "./DishTile";
-import fetchMyMenu from "../../../hooks/fetchMyMenu";
+import useFetchMyMenu from "../../../hooks/useFetchMyMenu";
 
 const MyMenuDishTileList = () => {
   const { userInfo } = useContext(UserAuthContext);
-  const { data, loading, error } = fetchMyMenu(userInfo.user._id);
+  const { data, loading, error } = useFetchMyMenu(userInfo.user._id);
 
   return (
     <div className="alignCenter mb-8">
