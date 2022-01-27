@@ -94,7 +94,8 @@ const MenuDetailDisplay = ({ dish }) => {
           </div>
         </div>
       </div>
-      <MenuCardList title="Menus includes this dish" link="/user/a" />
+      {/* Wait for version 2 */}
+      {/* <MenuCardList title="Menus includes this dish" link="/user/a" /> */}
     </main>
   );
 };

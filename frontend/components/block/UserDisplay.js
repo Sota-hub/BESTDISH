@@ -20,9 +20,10 @@ const UserDisplay = () => {
         </div>
       </div>
       <div className=" mb-14">
-        <DishCardList title="Recommend" link="#" />
+        {/* Wait for version 2 */}
+        {/* <DishCardList title="Recommend" link="#" />
         <DishCardList title="Latest" link="#" />
-        <MenuCardList title="Same BEST DISH" link="#" />
+        <MenuCardList title="Same BEST DISH" link="#" /> */}
       </div>
       <PostButton />
     </main>

@@ -15,9 +15,9 @@ const ProfileDisplay = () => {
             <>
               <p className="singleUserInfo">{userInfo.user.name}</p>
               <p className="singleUserInfo">{userInfo.user.email}</p>
-              <p className="singleUserInfo">100 (posts)</p>
+              {/* <p className="singleUserInfo">100 (posts)</p>
               <p className="singleUserInfo">$100 (average price)</p>
-              <p className="singleUserInfo">USA (living location)</p>
+              <p className="singleUserInfo">USA (living location)</p> */}
             </>
           )}
         </div>
