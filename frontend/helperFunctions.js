@@ -57,3 +57,7 @@ export const popularityFilter = (dishes, popularity) => {
   if (popularity === "new")
     dishes.sort((a, b) => new Date(b.postDate) - new Date(a.postDate));
 };
+
+export const sortByDate = (posts) => {
+  posts.sort((a, b) => new Date(b.postDate) - new Date(a.postDate));
+};

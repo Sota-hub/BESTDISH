@@ -49,4 +49,13 @@ router.get("/:userId/:dishId", async (req, res) => {
   res.send(dish);
 });
 
+router.get("/posts", async (_, res) => {
+  try {
+    const posts = await Dish.find({});
+    res.status(201).send(posts);
+  } catch (e) {
+    res.status(500).send(e);
+  }
+});
+
 module.exports = router;

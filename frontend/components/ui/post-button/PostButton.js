@@ -22,7 +22,7 @@ const PostButton = () => {
 
   return (
     <>
-      <div className="fixed bottom-8 right-8" onClick={judgeIfLogin}>
+      <div className="fixed bottom-8 right-8 z-10 " onClick={judgeIfLogin}>
         <div className="relative">
           <svg
             xmlns="http://www.w3.org/2000/svg"

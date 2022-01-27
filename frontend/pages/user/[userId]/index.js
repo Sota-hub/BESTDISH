@@ -5,10 +5,14 @@ import { UserAuthContext } from "../../../contexts/UserAuthContext";
 import Header from "../../../components/layouts/Header";
 import NotAuthenticated from "../../../components/foundations/NotAuthenticated";
 import UserDisplay from "../../../components/block/UserDisplay";
+import DishCardList from "../../../components/parts/card/DishCardList";
 import Footer from "../../../components/layouts/Footer";
+import { sortByDate } from "../../../helperFunctions";
 
-const User = () => {
+const User = ({ posts }) => {
   const { isAuth } = useContext(UserAuthContext);
+
+  sortByDate(posts);
 
   return (
     <>
@@ -26,6 +30,7 @@ const User = () => {
           </Head>
           <Header />
           <UserDisplay />
+          <DishCardList posts={posts} />
           <Footer />
         </>
       )}
@@ -33,13 +38,22 @@ const User = () => {
   );
 };
 
-// export async function getServerSideProps({ query }) {
-//   const response = await fetch();
-//   const data = await response.json();
+export const getStaticProps = async () => {
+  const response = await fetch("http://localhost:8000/dishes/posts", {
+    method: "GET",
+  });
+  const posts = await response.json();
+  return {
+    props: { posts },
+    // revalidate: 60,
+  };
+};
 
-//   return {
-//     props: {},
-//   };
-// }
+export const getStaticPaths = async () => {
+  return {
+    paths: [],
+    fallback: true,
+  };
+};
 
 export default User;
