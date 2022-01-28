@@ -1,19 +1,16 @@
 import { useRouter } from "next/router";
 import Image from "next/image";
 
+import { goToDetailPage } from "../../../helperFunctions";
 import RatingStar from "../../ui/RatingStar";
 
 const DishTile = ({ dish }) => {
   const router = useRouter();
 
-  const goToDetailPage = () => {
-    router.push(`/user/${dish.userId}/menu/${dish._id}`);
-  };
-
   return (
     <div
       className="flex border-b border-gray-300 pb-4 mb-4 cursor-pointer min-h-[120px]"
-      onClick={goToDetailPage}
+      onClick={() => goToDetailPage(router, dish.userId, dish._id)}
     >
       <div className="relative w-[50%]">
         <Image

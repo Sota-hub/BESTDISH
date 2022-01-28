@@ -11,14 +11,7 @@ const DishCardList = ({ posts }) => {
       </Link> */}
       <div className="flex flex-nowrap overflow-x-auto mt-4">
         {posts.map((post) => (
-          <DishCard
-            key={post._id}
-            dish_name={post.postName}
-            evaluation={post.evaluation}
-            price={post.price}
-            clarification={post.clarification}
-            file={post.file}
-          />
+          <DishCard key={post._id} post={post} />
         ))}
       </div>
     </div>

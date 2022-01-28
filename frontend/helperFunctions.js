@@ -61,3 +61,7 @@ export const popularityFilter = (dishes, popularity) => {
 export const sortByDate = (posts) => {
   posts.sort((a, b) => new Date(b.postDate) - new Date(a.postDate));
 };
+
+export const goToDetailPage = (router, userId, dishId) => {
+  router.push(`/user/${userId}/menu/${dishId}`);
+};

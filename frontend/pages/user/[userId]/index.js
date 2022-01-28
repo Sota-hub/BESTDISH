@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import Head from "next/head";
 
 import { UserAuthContext } from "../../../contexts/UserAuthContext";
@@ -12,7 +12,7 @@ import { sortByDate } from "../../../helperFunctions";
 const User = ({ posts }) => {
   const { isAuth } = useContext(UserAuthContext);
 
-  sortByDate(posts);
+  posts && sortByDate(posts);
 
   return (
     <>
@@ -30,7 +30,7 @@ const User = ({ posts }) => {
           </Head>
           <Header />
           <UserDisplay />
-          <DishCardList posts={posts} />
+          {posts && <DishCardList posts={posts} />}
           <Footer />
         </>
       )}
