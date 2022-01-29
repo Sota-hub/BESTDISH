@@ -25,7 +25,7 @@ const Search = ({ dishes }) => {
 
 export async function getServerSideProps({ query }) {
   const response = await fetch(
-    `http://localhost:8000/dishes/search?dishName=${query.dishName}&price=${query.price}`
+    `https://best-dish.herokuapp.com/dishes/search?dishName=${query.dishName}&price=${query.price}`
   );
   const dishes = await response.json();
 

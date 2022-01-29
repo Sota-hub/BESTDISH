@@ -37,7 +37,7 @@ const Home = ({ posts }) => {
 };
 
 export const getStaticProps = async () => {
-  const response = await fetch("http://localhost:8000/dishes/posts", {
+  const response = await fetch("https://best-dish.herokuapp.com/dishes/posts", {
     method: "GET",
   });
   const posts = await response.json();
