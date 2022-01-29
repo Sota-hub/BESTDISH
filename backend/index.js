@@ -5,7 +5,11 @@ require("dotenv").config();
 const dishRouter = require("./routers/dish");
 const userRouter = require("./routers/user");
 
-mongoose.connect("mongodb://127.0.0.1:27017/best-dish-api");
+const mongoUri = process.env.MONGO_URI;
+mongoose.connect(mongoUri);
+
+mongoose.connection.on("connected", () => console.log("Connected!"));
+mongoose.connection.on("error", (err) => console.log(err));
 
 const app = express();
 const port = process.env.PORT || 8000;
@@ -16,6 +20,6 @@ app.use(express.json());
 app.use("/dishes", dishRouter);
 app.use("/users", userRouter);
 
-app.listen(port, () => {
+app.listen(port, (e) => {
   console.log(`BESTDISH listening at http://localhost:${port}`);
 });
