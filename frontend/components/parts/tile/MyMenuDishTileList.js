@@ -6,7 +6,7 @@ import useFetchMyMenu from "../../../hooks/useFetchMyMenu";
 
 const MyMenuDishTileList = () => {
   const { userInfo } = useContext(UserAuthContext);
-  const { data, loading, error } = useFetchMyMenu(userInfo.user._id);
+  const { data, loading, error } = useFetchMyMenu(userInfo?.user._id);
 
   return (
     <div className="alignCenter mb-8">
