@@ -20,6 +20,10 @@ app.use(express.json());
 app.use("/dishes", dishRouter);
 app.use("/users", userRouter);
 
+app.get("/", (req, res) => {
+  res.send("Hello from Express!");
+});
+
 app.listen(port, (e) => {
   console.log(`BESTDISH listening at http://localhost:${port}`);
 });
