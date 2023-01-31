@@ -37,7 +37,7 @@ const Home = ({ posts }) => {
 };
 
 export const getStaticProps = async () => {
-  const response = await fetch("https://best-dish.herokuapp.com/dishes/posts", {
+  const response = await fetch("https://best-dish-server.onrender.com/dishes/posts", {
     method: "GET",
   });
   const posts = await response.json();
